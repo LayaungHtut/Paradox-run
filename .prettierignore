@@ -7,3 +7,15 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Vendored AI-assistant tooling (not project code)
+/.cursor/
+/.gemini/
+/.github/skills/
+/.github/agents/
+/.opencode/
+/data/
+
+# Native Android project (Gradle/Java; web assets are copied build output)
+/android/
+/store/

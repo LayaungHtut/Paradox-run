@@ -1,0 +1,21 @@
+# Render blueprint: New > Blueprint > pick this repo. The disk requires a paid instance type
+# (free instances have no persistent disk, so the leaderboard would reset on every deploy).
+services:
+  - type: web
+    name: paradox-run
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: ADDRESS_HEADER
+        value: X-Forwarded-For
+      - key: XFF_DEPTH
+        value: '1'
+      - key: PROTOCOL_HEADER
+        value: X-Forwarded-Proto
+    disk:
+      name: paradox-data
+      mountPath: /data
+      sizeGB: 1

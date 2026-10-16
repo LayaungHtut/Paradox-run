@@ -1,0 +1,36 @@
+# Fly.io: `fly launch --copy-config --no-deploy`, then
+#   fly volumes create paradox_data --size 1
+#   fly deploy
+# Change `app` to a free name; the public URL becomes https://<app>.fly.dev
+app = "paradox-run"
+primary_region = "sin"
+
+[build]
+
+[env]
+  DATA_DIR = "/data"
+  ADDRESS_HEADER = "Fly-Client-IP"
+  PROTOCOL_HEADER = "X-Forwarded-Proto"
+
+[mounts]
+  source = "paradox_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  # one machine only: the leaderboard file lives on its volume
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "30s"
+    method = "GET"
+    path = "/api/health"
+    timeout = "3s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

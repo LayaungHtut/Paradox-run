@@ -1,0 +1,12 @@
+node_modules
+build
+.svelte-kit
+data
+android
+store
+Rules
+preproduction
+.git
+.env.local
+.env.*.local
+*.jks

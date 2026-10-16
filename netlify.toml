@@ -1,0 +1,41 @@
+# Static deploy of the game. Leaderboards, verified ranks and ghost challenge links need the Node
+# server (see docs/DEPLOYMENT.md): set VITE_API_URL in the Netlify build environment to use one.
+[build]
+  command = "npm run build:static"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  VITE_STATIC_BUILD = "1"
+
+# never answer /api with the app shell (HTML parsed as JSON); a plain 404 keeps failures clean
+[[redirects]]
+  from = "/api/*"
+  to = "/404-api"
+  status = 404
+
+# client-side routing: every page is the SPA shell
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# content-hashed build output never changes
+[[headers]]
+  for = "/_app/immutable/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# the service worker must always be revalidated or players get stuck on old versions
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"
