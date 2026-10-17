@@ -14,6 +14,7 @@
 	import { profile } from '$lib/state/profile.svelte';
 	import { progress, type RecordOutcome } from '$lib/state/progress.svelte';
 	import { settings } from '$lib/state/settings.svelte';
+	import { controlLabels } from '$lib/game/input/input';
 	import Hud from './Hud.svelte';
 	import PauseMenu from './PauseMenu.svelte';
 	import Results from './Results.svelte';
@@ -54,6 +55,7 @@
 	let racedRival = $state<{ name: string; ticks: number } | null>(null);
 	const touch = typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches;
 	let toastTimer: ReturnType<typeof setTimeout> | undefined;
+	const keys = controlLabels(settings.data.keys, touch);
 
 	const HINTS: Record<HintKey, { text: string; ach?: string }> = {
 		firstEcho: {
@@ -63,7 +65,7 @@
 		holdPlate: {
 			text: touch
 				? 'Your echo will hold this plate exactly as long as you do. Wait a while, then tap REWIND.'
-				: 'Your echo will hold this plate exactly as long as you do. Wait a while, then press R.'
+				: `Your echo will hold this plate exactly as long as you do. Wait a while, then press ${keys.rewind}.`
 		},
 		desync: {
 			text: 'PARADOX — the world changed, so an echo drifted off its recording.',
@@ -133,7 +135,9 @@
 				screenShake: s.screenShake,
 				haptics: s.haptics,
 				reducedEffects: s.reducedEffects,
-				reducedFlashing: s.reducedFlashing
+				reducedFlashing: s.reducedFlashing,
+				keys: s.keys,
+				controlLabels: keys
 			},
 			// untracked: a new best saved on the results screen must not restart the running game;
 			// "Run again" remounts and picks up the fresh ghost
@@ -195,6 +199,7 @@
 					{hud}
 					title={heading}
 					{touch}
+					rewindKey={keys.rewind}
 					{fps}
 					onPause={() => controller?.togglePause()}
 					onRewind={() => controller?.requestRewind()}
@@ -213,7 +218,16 @@
 					</div>
 					<h1>{heading}</h1>
 					<p>{level.def.tagline}</p>
-					<div class="go">{touch ? 'Move to start' : 'Move with A / D or ← → to start'}</div>
+					{#if !touch}
+						<div class="keys">
+							<span><kbd>{keys.move}</kbd> run</span>
+							<span><kbd>{keys.jump}</kbd> jump</span>
+							<span><kbd>{keys.dash}</kbd> dash</span>
+							<span><kbd>{keys.rewind}</kbd> rewind</span>
+							<span><kbd>{keys.pause}</kbd> pause</span>
+						</div>
+					{/if}
+					<div class="go">{touch ? 'Move to start' : `Move with ${keys.move} to start`}</div>
 					{#if touch}<div class="sideways">Tip: turn sideways for a wider view</div>{/if}
 				</div>
 			{:else if readyPrompt && hud}
@@ -235,6 +249,8 @@
 				<PauseMenu
 					title={heading}
 					tagline={level.def.tagline}
+					{keys}
+					{touch}
 					onResume={() => controller?.resume()}
 					onRestart={restart}
 					onQuit={quit}
@@ -307,6 +323,27 @@
 		text-transform: uppercase;
 		color: var(--color-echo);
 		animation: pulse 1.6s ease-in-out infinite;
+	}
+	.keys {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 6px 14px;
+		margin-top: 12px;
+		font-size: 0.78rem;
+		color: #c3cbe0;
+	}
+	kbd {
+		display: inline-block;
+		min-width: 1.8em;
+		padding: 1px 6px;
+		margin-right: 3px;
+		border-radius: 6px;
+		border: 1px solid rgba(127, 211, 255, 0.45);
+		background: rgba(10, 16, 30, 0.7);
+		color: #dff3ff;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
 	}
 	.ready {
 		position: absolute;
@@ -384,7 +421,8 @@
 		.card-intro p {
 			font-size: 0.82rem;
 		}
-		.go {
+		.go,
+		.keys {
 			margin-top: 8px;
 		}
 	}

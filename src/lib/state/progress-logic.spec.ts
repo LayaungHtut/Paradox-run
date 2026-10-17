@@ -10,6 +10,7 @@ import {
 	sanitizeProgress
 } from './progress-logic';
 import { sanitize as sanitizeSettings } from './settings.svelte';
+import { DEFAULT_KEYS } from '$lib/game/input/input';
 
 const timeline = (level: string): Timeline => ({
 	v: 2,
@@ -200,7 +201,8 @@ describe('save recovery', () => {
 			showFps: false,
 			muted: false,
 			reducedFlashing: false,
-			bestGhost: true
+			bestGhost: true,
+			keys: DEFAULT_KEYS
 		};
 		const s = sanitizeSettings(defaults, { sfx: 'loud', music: 7, muted: 'yes', showFps: true });
 		expect(s.sfx).toBe(0.8);
@@ -208,5 +210,11 @@ describe('save recovery', () => {
 		expect(s.muted).toBe(false);
 		expect(s.showFps).toBe(true);
 		expect(sanitizeSettings(defaults, null)).toEqual(defaults);
+		const k = sanitizeSettings(defaults, {
+			keys: { jump: ['KeyJ', 'KeyJ', 7, '<script>'], dash: ['KeyJ', 'KeyK'], left: 'KeyA' }
+		}).keys;
+		expect(k.jump).toEqual(['KeyJ']);
+		expect(k.dash).toEqual(['KeyK']);
+		expect(k.left).toEqual(DEFAULT_KEYS.left);
 	});
 });

@@ -79,6 +79,8 @@ export class Renderer {
 	qualityCap = 2;
 	/** skip purely decorative layers (parallax architecture, vignette) on struggling devices */
 	lite = false;
+	/** sign tokens like {jump} become these labels (bound key or touch gesture) */
+	controlLabels: Record<string, string> = {};
 
 	constructor(readonly canvas: HTMLCanvasElement) {
 		const ctx = canvas.getContext('2d', { alpha: false });
@@ -88,7 +90,9 @@ export class Renderer {
 	}
 
 	setLevel(level: LevelData): void {
-		this.level = level;
+		const fill = (t: string) =>
+			t.replace(/\{(\w+)\}/g, (_, k: string) => this.controlLabels[k] ?? k.toUpperCase());
+		this.level = { ...level, signs: level.signs.map((s) => ({ ...s, text: fill(s.text) })) };
 		this.theme = themeFor(level.def.id);
 		this.geo = buildGeometry(level);
 		this.particles.clear();

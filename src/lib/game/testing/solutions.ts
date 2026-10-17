@@ -1,6 +1,33 @@
-import { IN_RIGHT } from '../core/constants';
+import { IN_JUMP, IN_LEFT, IN_RIGHT } from '../core/constants';
 import type { RunSession } from '../run/session';
-import { idle, runTo, wait, waitFor, waitUntil, type LoopScript } from './bot';
+import { EXPANSION_PLANS } from './expansion-plans';
+import { planScripts } from './plan';
+import { idle, logicalX, runTo, wait, waitFor, waitUntil, type LoopScript } from './bot';
+
+/** the ferry has finished sailing (works mirrored: dx flips with the level) */
+const ferryDocked = (s: RunSession) =>
+	Math.abs(s.world.lifts[0].x - (s.level.lifts[0].x + s.level.lifts[0].dx)) < 0.5;
+const liftTop = (s: RunSession, i: number) =>
+	s.world.lifts[i].y <= s.level.lifts[i].y + s.level.lifts[i].dy;
+const [LIFT_B, LIFT_A] = [0, 1];
+/** is the gate on channel `ch` open (gates swap order in mirrored levels, channels don't) */
+const gateOpen = (s: RunSession, ch: number) =>
+	s.world.doors[s.level.doors.findIndex((d) => d.ch === ch)].open;
+/** relay-race: echo 2 trips relay B once loop 3 is waiting at gate B */
+const RELAY_B_AT = 330;
+/** ferry left edge in logical (unmirrored) coordinates */
+const ferryX = (s: RunSession) =>
+	s.level.mirrored ? s.level.width - s.world.lifts[0].x - s.level.lifts[0].w : s.world.lifts[0].x;
+/** steer to stay over the middle of the moving ferry */
+const steer = (s: RunSession) => {
+	const d = ferryX(s) + 19 - logicalX(s);
+	return d > 2 ? IN_RIGHT : d < -2 ? IN_LEFT : 0;
+};
+
+/** levels 16–50 are solved by data plans (their three-star route is the same plan) */
+const EXPANSION_SCRIPTS: Record<string, LoopScript[]> = Object.fromEntries(
+	Object.entries(EXPANSION_PLANS).map(([id, plan]) => [id, planScripts(plan)])
+);
 
 /**
  * A known-good timeline for every campaign level, expressed as closed-loop scripts (one per loop).
@@ -156,7 +183,137 @@ export const SOLUTIONS: Record<string, LoopScript[]> = {
 				yield* runTo(s, 1350, { jumps: [812] });
 			}
 		] satisfies LoopScript[];
-	})()
+	})(),
+	ferry: [
+		// loop 1: hold the plate while the ferry sails
+		function* (s) {
+			yield* runTo(s, 40);
+			yield* waitUntil(s, 260);
+			return 'rewind';
+		},
+		// loop 2: board the ferry, ride it across, walk to the exit
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => ferryDocked(s));
+			yield* runTo(s, 770);
+		}
+	],
+	blackout: [
+		// loop 1: plate A cuts beam A
+		function* (s) {
+			yield* runTo(s, 100);
+			yield* waitUntil(s, 200);
+			return 'rewind';
+		},
+		// loop 2: through beam A, hold plate B
+		function* (s) {
+			yield* runTo(s, 290);
+			yield* waitUntil(s, 300);
+			return 'rewind';
+		},
+		// loop 3: both beams down
+		function* (s) {
+			yield* runTo(s, 580);
+		}
+	],
+	'point-of-no-return': [
+		// loop 1: drop down the well and latch the relay
+		function* (s) {
+			yield* runTo(s, 24);
+			yield* waitFor(s, () => s.world.relayTimer[0] !== 0);
+			return 'rewind';
+		},
+		// loop 2: jump-dash the spikes; the gate is already latched open
+		function* (s) {
+			yield* runTo(s, 500, { jumps: [272], dashes: [300] });
+			yield* waitFor(s, () => s.world.doors[0].open);
+			yield* runTo(s, 660);
+		}
+	],
+	stairway: [
+		// (lifts are indexed in map order: B's row comes first)
+		// loop 1: hold plate A (lift A up)
+		function* (s) {
+			yield* runTo(s, 55);
+			yield* waitUntil(s, 200);
+			return 'rewind';
+		},
+		// loop 2: ride lift A, wait beside plate B, step on once loop 3 will be aboard lift B
+		function* (s) {
+			yield* runTo(s, 238);
+			yield* waitFor(s, () => liftTop(s, LIFT_A));
+			yield* runTo(s, 360);
+			yield* waitUntil(s, 330);
+			yield* runTo(s, 388);
+			yield* waitUntil(s, 480);
+			return 'rewind';
+		},
+		// loop 3: ride lift A, hop plate B, board lift B, ride to the top
+		function* (s) {
+			yield* runTo(s, 238);
+			yield* waitFor(s, () => liftTop(s, LIFT_A));
+			yield* runTo(s, 558, { jumps: [360] });
+			yield* waitFor(s, () => liftTop(s, LIFT_B));
+			yield* runTo(s, 660);
+		}
+	],
+	'relay-race': [
+		// loop 1: climb to relay A and trip it
+		function* (s) {
+			yield* runTo(s, 22, { jumps: [110, 62] });
+			yield* waitFor(s, () => s.world.relayTimer[0] !== 0);
+			return 'rewind';
+		},
+		// loop 2: through gate A with echo 1, drop into the pit, trip relay B late
+		function* (s) {
+			yield* runTo(s, 245);
+			yield* waitFor(s, () => gateOpen(s, 0));
+			yield* runTo(s, 386);
+			yield* waitUntil(s, RELAY_B_AT);
+			yield* runTo(s, 452);
+			yield* waitFor(s, () => s.world.relayTimer[1] !== 0);
+			return 'rewind';
+		},
+		// loop 3: through gate A, jump the pit, wait at gate B for echo 2
+		function* (s) {
+			yield* runTo(s, 245);
+			yield* waitFor(s, () => gateOpen(s, 0));
+			yield* runTo(s, 690, { jumps: [366], dashes: [392] });
+			yield* waitFor(s, () => gateOpen(s, 1));
+			yield* runTo(s, 835);
+		}
+	],
+	'full-circle': [
+		// loop 1: hold the ferry plate
+		function* (s) {
+			yield* runTo(s, 40);
+			yield* waitUntil(s, 270);
+			return 'rewind';
+		},
+		// loop 2: ride, then drop down the well onto the latch
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => ferryDocked(s));
+			yield* runTo(s, 548);
+			yield* waitFor(s, () => s.world.relayTimer[0] !== 0);
+			return 'rewind';
+		},
+		// loop 3: ride, jump the well, hold the beam plate
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => ferryDocked(s));
+			yield* runTo(s, 676, { jumps: [490] });
+			yield* waitUntil(s, 520);
+			return 'rewind';
+		},
+		// loop 4: ride, jump the well, walk through the dead beam and the latched gate
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => ferryDocked(s));
+			yield* runTo(s, 1060, { jumps: [490] });
+		}
+	],
+	...EXPANSION_SCRIPTS
 };
 
 const liftUp = (s: RunSession, i = 0) =>
@@ -235,5 +392,75 @@ export const PERFECT_SOLUTIONS: Record<string, LoopScript[]> = {
 			yield* wait(50);
 			yield* runTo(s, 1350, { jumps: [641, 809] });
 		}
-	]
+	],
+	ferry: [
+		SOLUTIONS.ferry[0],
+		// jump off the moving ferry under the shard and land back on it
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => logicalX(s) >= 280);
+			for (let i = 0; i < 14; i++) yield IN_JUMP | steer(s);
+			yield* waitFor(s, () => s.world.player.onGround);
+			yield* waitFor(s, () => ferryDocked(s), 0);
+			yield* runTo(s, 770);
+		}
+	],
+	blackout: [
+		SOLUTIONS.blackout[0],
+		SOLUTIONS.blackout[1],
+		function* (s) {
+			yield* runTo(s, 580, { jumps: [150, 448] });
+		}
+	],
+	'point-of-no-return': [
+		SOLUTIONS['point-of-no-return'][0],
+		function* (s) {
+			yield* runTo(s, 500, { jumps: [160, 272], dashes: [300] });
+			yield* runTo(s, 660);
+		}
+	],
+	stairway: [
+		function* (s) {
+			yield* runTo(s, 55, { jumps: [145] });
+			yield* waitUntil(s, 200);
+			return 'rewind';
+		},
+		SOLUTIONS.stairway[1],
+		function* (s) {
+			yield* runTo(s, 238);
+			yield* waitFor(s, () => liftTop(s, LIFT_A));
+			yield* runTo(s, 558, { jumps: [360, 430] });
+			yield* waitFor(s, () => liftTop(s, LIFT_B));
+			yield* runTo(s, 660);
+		}
+	],
+	'relay-race': [
+		// trip relay A, then hop off the top step for the shard above it
+		function* (s) {
+			yield* runTo(s, 22, { jumps: [110, 62] });
+			yield* waitFor(s, () => s.world.relayTimer[0] !== 0);
+			yield* runTo(s, 70, { jumps: [26] });
+			return 'rewind';
+		},
+		SOLUTIONS['relay-race'][1],
+		// take off late so the arc crosses the shard over the pit
+		function* (s) {
+			yield* runTo(s, 245);
+			yield* waitFor(s, () => gateOpen(s, 0));
+			yield* runTo(s, 690, { jumps: [380], dashes: [404] });
+			yield* waitFor(s, () => gateOpen(s, 1));
+			yield* runTo(s, 835);
+		}
+	],
+	'full-circle': [
+		SOLUTIONS['full-circle'][0],
+		SOLUTIONS['full-circle'][1],
+		SOLUTIONS['full-circle'][2],
+		function* (s) {
+			yield* runTo(s, 175);
+			yield* waitFor(s, () => ferryDocked(s));
+			yield* runTo(s, 1060, { jumps: [490, 965] });
+		}
+	],
+	...EXPANSION_SCRIPTS
 };

@@ -6,6 +6,13 @@
 	import { settings, type SettingsData } from '$lib/state/settings.svelte';
 	import { audio } from '$lib/game/audio/audio';
 	import { exportBackup, importBackup } from '$lib/state/storage';
+	import {
+		DEFAULT_KEYS,
+		KEY_SLOTS,
+		keyLabel,
+		type KeyAction,
+		type KeyBindings
+	} from '$lib/game/input/input';
 
 	let name = $state(profile.data.name);
 	let nameMsg = $state<string | null>(null);
@@ -72,8 +79,40 @@
 		location.reload();
 	}
 
+	const keyRows: { action: KeyAction; label: string }[] = [
+		{ action: 'left', label: 'Run left' },
+		{ action: 'right', label: 'Run right' },
+		{ action: 'jump', label: 'Jump' },
+		{ action: 'dash', label: 'Dash' },
+		{ action: 'rewind', label: 'Rewind' },
+		{ action: 'pause', label: 'Pause' }
+	];
+	/** the key slot waiting for a key press */
+	let listening = $state<{ action: KeyAction; slot: number } | null>(null);
+
+	function bindKey(e: KeyboardEvent) {
+		if (!listening) return;
+		e.preventDefault();
+		// Space/Enter would otherwise re-click the focused key button on keyup
+		(document.activeElement as HTMLElement | null)?.blur();
+		const { action, slot } = listening;
+		listening = null;
+		if (e.code === 'Escape' || !e.code) return; // cancel
+		const clear = e.code === 'Backspace' || e.code === 'Delete';
+		// a key can only do one thing: take it away from wherever it was bound
+		const keys = Object.fromEntries(
+			Object.entries(settings.data.keys).map(([a, codes]) => [a, codes.filter((c) => c !== e.code)])
+		) as KeyBindings;
+		const codes = settings.data.keys[action].map((c) => (c === e.code ? '' : c));
+		codes[slot] = clear ? '' : e.code;
+		keys[action] = codes.filter(Boolean);
+		settings.update({ keys });
+	}
+
 	let unlocked = $derived(Object.keys(progress.data.achievements).length);
 </script>
+
+<svelte:window onkeydown={bindKey} />
 
 <svelte:head><title>Profile & settings · PARADOX RUN</title></svelte:head>
 
@@ -188,14 +227,36 @@
 
 	<section class="panel block">
 		<h2 class="eyebrow">Controls</h2>
+		<p class="fine">Click a key, then press the new key. Esc cancels, Backspace clears the slot.</p>
+		<div class="binds">
+			{#each keyRows as row (row.action)}
+				<span class="bind-label">{row.label}</span>
+				{#each Array.from({ length: KEY_SLOTS }, (_, i) => i) as slot (slot)}
+					{@const code = settings.data.keys[row.action][slot]}
+					{@const active = listening?.action === row.action && listening.slot === slot}
+					<button
+						class="key"
+						class:active
+						class:empty={!code}
+						aria-label={`${row.label} key ${slot + 1}: ${code ? keyLabel(code) : 'unbound'}`}
+						onclick={() => (listening = active ? null : { action: row.action, slot })}
+					>
+						{active ? 'Press a key…' : code ? keyLabel(code) : '—'}
+					</button>
+				{/each}
+			{/each}
+		</div>
+		<div class="reset">
+			<button class="btn" onclick={() => settings.update({ keys: DEFAULT_KEYS })}>
+				Reset keys to default
+			</button>
+		</div>
 		<dl class="controls">
 			<dt>Touch</dt>
 			<dd>
 				Left thumb: slide to run · Right side: tap to jump (hold for height), flick to dash · ⟲ ends
 				the loop early
 			</dd>
-			<dt>Keyboard</dt>
-			<dd>A/D or ←/→ run · Space/W/↑ jump · Shift/X dash · R rewind · Esc pause</dd>
 		</dl>
 	</section>
 
@@ -321,6 +382,33 @@
 	}
 	.links a {
 		text-decoration: underline;
+	}
+	.binds {
+		display: grid;
+		grid-template-columns: minmax(80px, auto) repeat(3, minmax(0, 1fr));
+		gap: 6px 8px;
+		align-items: center;
+		font-size: 0.86rem;
+	}
+	.key {
+		min-height: 40px;
+		border-radius: 10px;
+		border: 1px solid var(--color-line);
+		background: var(--color-ink);
+		color: var(--color-text);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+	.key.empty {
+		color: var(--color-dim);
+	}
+	.key.active {
+		border-color: var(--color-echo);
+		color: var(--color-echo);
 	}
 	.controls dt {
 		color: var(--color-dim);

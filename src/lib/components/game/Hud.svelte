@@ -5,13 +5,14 @@
 		hud: HudSnapshot;
 		title: string;
 		touch: boolean;
+		rewindKey: string;
 		fps: number | null;
 		onPause: () => void;
 		onRewind: () => void;
 		/** where the canvas should paint the loop timeline bar (CSS px), or null when the HUD is gone */
 		onBarLayout: (rect: { x: number; y: number; w: number } | null) => void;
 	}
-	let { hud, title, touch, fps, onPause, onRewind, onBarLayout }: Props = $props();
+	let { hud, title, touch, rewindKey, fps, onPause, onRewind, onBarLayout }: Props = $props();
 
 	const fmt = (s: number) => s.toFixed(1);
 	let low = $derived(hud.phase === 'playing' && hud.loopTimeLeft < 3);
@@ -102,7 +103,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			<span>{touch ? 'Rewind' : 'Rewind · R'}</span>
+			<span>{touch ? 'Rewind' : `Rewind · ${rewindKey}`}</span>
 		</button>
 	</div>
 </div>

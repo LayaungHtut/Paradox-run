@@ -13,12 +13,56 @@ export interface InputCommands {
 	onPause(): void;
 }
 
-const KEY_LEFT = new Set(['ArrowLeft', 'KeyA']);
-const KEY_RIGHT = new Set(['ArrowRight', 'KeyD']);
-const KEY_JUMP = new Set(['Space', 'ArrowUp', 'KeyW', 'KeyZ', 'KeyJ']);
-const KEY_DASH = new Set(['ShiftLeft', 'ShiftRight', 'KeyX', 'KeyK']);
-const KEY_REWIND = new Set(['KeyR', 'KeyQ']);
-const KEY_PAUSE = new Set(['Escape', 'KeyP']);
+export type KeyAction = 'left' | 'right' | 'jump' | 'dash' | 'rewind' | 'pause';
+/** KeyboardEvent.code values per action, rebindable in settings */
+export type KeyBindings = Record<KeyAction, string[]>;
+
+export const KEY_ACTIONS: KeyAction[] = ['left', 'right', 'jump', 'dash', 'rewind', 'pause'];
+export const KEY_SLOTS = 3;
+export const DEFAULT_KEYS: KeyBindings = {
+	left: ['KeyA', 'ArrowLeft'],
+	right: ['KeyD', 'ArrowRight'],
+	jump: ['Space', 'KeyW', 'ArrowUp'],
+	dash: ['ShiftLeft', 'KeyX', 'ShiftRight'],
+	rewind: ['KeyR', 'KeyQ'],
+	pause: ['Escape', 'KeyP']
+};
+
+const NAMED: Record<string, string> = {
+	Space: 'Space',
+	ArrowLeft: '←',
+	ArrowRight: '→',
+	ArrowUp: '↑',
+	ArrowDown: '↓',
+	Escape: 'Esc',
+	ShiftLeft: 'L-Shift',
+	ShiftRight: 'R-Shift',
+	ControlLeft: 'L-Ctrl',
+	ControlRight: 'R-Ctrl',
+	AltLeft: 'L-Alt',
+	AltRight: 'R-Alt',
+	Enter: 'Enter',
+	Backspace: 'Backspace',
+	Tab: 'Tab'
+};
+
+/** Short human label for a KeyboardEvent.code, e.g. 'KeyA' → 'A', 'ArrowUp' → '↑'. */
+export function keyLabel(code: string): string {
+	return NAMED[code] ?? code.replace(/^(Key|Digit|Numpad)/, '');
+}
+
+/** What signs and prompts call each control: the first bound key, or the touch gesture. */
+export function controlLabels(keys: KeyBindings, touch: boolean): Record<string, string> {
+	if (touch) return { move: 'SLIDE', jump: 'TAP', dash: 'FLICK', rewind: '⟲', pause: 'II' };
+	const k = (a: KeyAction) => (keys[a][0] ? keyLabel(keys[a][0]).toUpperCase() : '—');
+	return {
+		move: `${k('left')} / ${k('right')}`,
+		jump: k('jump'),
+		dash: k('dash'),
+		rewind: k('rewind'),
+		pause: k('pause')
+	};
+}
 
 /** Horizontal swipe distance (CSS px) and max duration that counts as a dash flick. */
 const SWIPE_DIST = 28;
@@ -40,7 +84,10 @@ export class InputManager {
 
 	private listeners: [EventTarget, string, EventListener, AddEventListenerOptions?][] = [];
 
-	constructor(private commands: InputCommands) {
+	constructor(
+		private commands: InputCommands,
+		private keys: KeyBindings = DEFAULT_KEYS
+	) {
 		if (typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches)
 			this.mode = 'touch';
 	}
@@ -124,18 +171,19 @@ export class InputManager {
 
 	private key(e: KeyboardEvent, down: boolean): void {
 		const c = e.code;
+		const k = this.keys;
 		let handled = true;
-		if (KEY_LEFT.has(c)) this.held.left = down;
-		else if (KEY_RIGHT.has(c)) this.held.right = down;
-		else if (KEY_JUMP.has(c)) {
+		if (k.left.includes(c)) this.held.left = down;
+		else if (k.right.includes(c)) this.held.right = down;
+		else if (k.jump.includes(c)) {
 			if (down && !this.held.jump) this.latchJump = true;
 			this.held.jump = down;
-		} else if (KEY_DASH.has(c)) {
+		} else if (k.dash.includes(c)) {
 			if (down && !this.held.dash) this.latchDash = true;
 			this.held.dash = down;
-		} else if (KEY_REWIND.has(c)) {
+		} else if (k.rewind.includes(c)) {
 			if (down && !e.repeat) this.commands.onRewind();
-		} else if (KEY_PAUSE.has(c)) {
+		} else if (k.pause.includes(c)) {
 			if (down && !e.repeat) this.commands.onPause();
 		} else handled = false;
 		if (handled) {

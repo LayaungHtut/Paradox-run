@@ -1,4 +1,5 @@
 import { audio } from '$lib/game/audio/audio';
+import { DEFAULT_KEYS, KEY_ACTIONS, KEY_SLOTS, type KeyBindings } from '$lib/game/input/input';
 import { loadJson, saveJson } from './storage';
 
 export interface SettingsData {
@@ -12,6 +13,7 @@ export interface SettingsData {
 	reducedFlashing: boolean;
 	/** race your own fastest run as a gold ghost */
 	bestGhost: boolean;
+	keys: KeyBindings;
 }
 
 const DEFAULTS: SettingsData = {
@@ -23,7 +25,8 @@ const DEFAULTS: SettingsData = {
 	showFps: false,
 	muted: false,
 	reducedFlashing: false,
-	bestGhost: true
+	bestGhost: true,
+	keys: DEFAULT_KEYS
 };
 const VERSION = 1;
 
@@ -63,6 +66,27 @@ export function sanitize(defaults: SettingsData, stored: unknown): SettingsData 
 		if (typeof d === 'number' && typeof v === 'number' && Number.isFinite(v))
 			(out[key] as number) = Math.min(1, Math.max(0, v));
 		else if (typeof d === 'boolean' && typeof v === 'boolean') (out[key] as boolean) = v;
+	}
+	out.keys = sanitizeKeys(defaults.keys, s.keys);
+	return out;
+}
+
+/** Each action keeps up to KEY_SLOTS key codes; a code bound twice stays only on its first action. */
+function sanitizeKeys(defaults: KeyBindings, stored: unknown): KeyBindings {
+	if (!stored || typeof stored !== 'object') return defaults;
+	const s = stored as Record<string, unknown>;
+	const seen: string[] = [];
+	const out = { ...defaults };
+	for (const a of KEY_ACTIONS) {
+		const v = s[a];
+		if (!Array.isArray(v)) continue;
+		out[a] = [];
+		for (const c of v) {
+			if (typeof c !== 'string' || !/^[A-Za-z0-9]{1,24}$/.test(c) || seen.includes(c)) continue;
+			if (out[a].length === KEY_SLOTS) break;
+			out[a].push(c);
+			seen.push(c);
+		}
 	}
 	return out;
 }

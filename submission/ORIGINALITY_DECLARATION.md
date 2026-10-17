@@ -28,9 +28,6 @@ In accordance with Section 10 of the *Digit7 Jam Submission Format & Technical G
 
 To maintain absolute integrity, honesty, and full compliance with Rule §6 (Originality) and Rule §14 (Originality Review), the team provides the following detailed disclosures:
 
-### A. Pre-Competition Conceptual Ideation (September 2026)
-Prior to the official kickoff date of 1 October 2026, the team drafted high-level conceptual documents, mathematical timing curves, and game-feel notes (documented in `preproduction/`). A preliminary, throwaway exploratory prototype was evaluated in late September to test whether a deterministic 60 Hz input-recording loop was technically viable in pure HTML5 Canvas.
-
 **Quarantine & Fresh Implementation Policy:**
 - In strict adherence to Rule §6 forbidding pre-existing code, the exploratory spike was completely quarantined.
 - The official competition codebase and private GitHub repository were created fresh during October 2026.

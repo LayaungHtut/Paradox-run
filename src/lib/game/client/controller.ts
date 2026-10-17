@@ -1,6 +1,6 @@
 import { audio } from '../audio/audio';
 import { TICK_MS, TICK_RATE } from '../core/constants';
-import { InputManager } from '../input/input';
+import { InputManager, type KeyBindings } from '../input/input';
 import type { LevelData } from '../levels/parse';
 import { PC } from '../render/palette';
 import { Renderer, type FrameState, type GhostView, type RewindView } from '../render/renderer';
@@ -39,6 +39,9 @@ export interface ControllerSettings {
 	haptics: boolean;
 	reducedEffects: boolean;
 	reducedFlashing: boolean;
+	keys: KeyBindings;
+	/** replaces {jump}-style tokens in level signs */
+	controlLabels: Record<string, string>;
 }
 
 export interface ControllerOptions {
@@ -100,11 +103,15 @@ export class GameController {
 		this.renderer.reducedMotion = !opts.settings.screenShake;
 		this.renderer.reducedFlashing = opts.settings.reducedFlashing;
 		this.renderer.particles.budget = opts.settings.reducedEffects ? 0.4 : 1;
+		this.renderer.controlLabels = opts.settings.controlLabels;
 		this.renderer.setLevel(opts.level);
-		this.input = new InputManager({
-			onRewind: () => this.requestRewind(),
-			onPause: () => this.togglePause()
-		});
+		this.input = new InputManager(
+			{
+				onRewind: () => this.requestRewind(),
+				onPause: () => this.togglePause()
+			},
+			opts.settings.keys
+		);
 		this.path = new Float32Array((this.session.loopLimit + 2) * 2);
 		this.rewindView = { path: this.path, count: 0, t: 0 };
 		this.beginLoop(false);

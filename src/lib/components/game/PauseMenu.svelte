@@ -4,11 +4,13 @@
 	interface Props {
 		title: string;
 		tagline: string;
+		keys: Record<string, string>;
+		touch: boolean;
 		onResume: () => void;
 		onRestart: () => void;
 		onQuit: () => void;
 	}
-	let { title, tagline, onResume, onRestart, onQuit }: Props = $props();
+	let { title, tagline, keys, touch, onResume, onRestart, onQuit }: Props = $props();
 </script>
 
 <div class="overlay" data-ui role="dialog" aria-modal="true" aria-label="Paused">
@@ -23,6 +25,17 @@
 				Echoes press plates, trip relays and draw fire. You can't touch them — plan around them.
 			</p>
 			<p><b>Rewind</b> ends the loop early; the echo keeps everything up to that moment.</p>
+			{#if touch}
+				<p>
+					<b>Controls</b> left thumb: slide to run · right side: tap to jump, flick to dash · ⟲ rewind
+				</p>
+			{:else}
+				<p>
+					<b>Controls</b>
+					{keys.move} run · {keys.jump} jump · {keys.dash} dash · {keys.rewind} rewind · {keys.pause}
+					pause <span class="dim">— change them in Profile & settings</span>
+				</p>
+			{/if}
 		</div>
 
 		<div class="toggles">
@@ -94,6 +107,9 @@
 	.rules b {
 		color: var(--color-echo);
 		font-weight: 650;
+	}
+	.dim {
+		color: var(--color-dim);
 	}
 	.toggles {
 		display: grid;
