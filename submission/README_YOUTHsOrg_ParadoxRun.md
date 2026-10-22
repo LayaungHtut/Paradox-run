@@ -20,7 +20,7 @@
 ## 3. Main Contact Person
 - **Lead Contact:** Team Representative / Lead Developer
 - **Email:** `contact@youths.org` *(replace with registered email: e.g., you@example.com)*
-- **Phone:** `+95 9 787 164 136` *(replace with registered primary phone number)*
+- **Phone:** **TODO: team lead's real phone number**
 - **Telegram Username:** `@youths_admin` *(replace with registered Telegram handle)*
 - **Registration ID:** `D7J-2026-REG-XXXX` *(replace with official Digit7 Jam registration ID)*
 
@@ -57,7 +57,7 @@ In each tight 15–25 second loop, the player navigates precision obstacles (spi
 ---
 
 ## 6. Supported Browsers
-Tested and certified on current stable releases:
+Intended browser targets (minimum versions below are targets, not a certified test matrix):
 - **Google Chrome** (v120+ desktop & mobile) — Primary reference target
 - **Apple Safari** (v16.4+ macOS & iOS 16+)
 - **Microsoft Edge** (v120+ desktop)
@@ -67,7 +67,9 @@ Tested and certified on current stable releases:
 
 ---
 
-## 7. Supported Devices
+Recorded testing includes historical Chromium automation and owner-reported physical Android/iPhone checks. Exact device and browser versions are not yet documented; see [validation record](../docs/VALIDATION_RECORD.md).
+
+## 7. Target Devices
 - **Desktop / Laptop PCs:**
   - Windows 10 & Windows 11
   - macOS (Ventura, Sonoma, Sequoia)
@@ -105,7 +107,7 @@ Tested and certified on current stable releases:
 ---
 
 ## 9. Known Bugs or Limitations
-- **Current Status:** **None.** (Zero crash bugs, zero memory leaks, and zero game-breaking progression blockers identified in automated test suites).
+- **Validation status:** The owner reports completed team review, physical Android/iPhone testing, audio listening and playtesting, with positive feedback. Detailed findings, device/browser versions and hardware performance measurements have not been supplied. Five unfamiliar-player session records are not yet available. Testing does not establish zero bugs or memory leaks. See [validation record](../docs/VALIDATION_RECORD.md).
 - **Platform-Specific Considerations:**
   - On iOS Mobile Safari, web pages cannot programmatic lock screen orientation to landscape without native app packaging. When opened in portrait orientation, a dedicated clean "Rotate Device" animation prompt is displayed, with full access to navigation menus maintained.
   - Desktop gameplay is optimized for keyboard input. Mouse clicks are fully functional for all menu interactions and UI dialogue boxes.
@@ -124,7 +126,7 @@ All production runtime code is bundled cleanly with no heavy runtime dependencie
 | **TypeScript** | 5.x / Compiler | Apache-2.0 | Type safety, deterministic math data models |
 | **Tailwind CSS** | 3.4.x / Utility CSS | MIT | High-performance menu and overlay styling |
 | **Vitest** | 2.x / Test Suite | MIT | Automated test verification (sim, levels, physics) |
-| **Playwright** | 1.45.x / Browser Automation | Apache-2.0 | Headless Chromium cross-browser playtesting |
+| **Playwright** | 1.45.x / Browser Automation | Apache-2.0 | Headless Chromium browser automation |
 
 ---
 
@@ -149,7 +151,7 @@ All production runtime code is bundled cleanly with no heavy runtime dependencie
 - **Orientation:** **Landscape** (Recommended & Primary).
 - **Internal Virtual Resolution:** Native Canvas renders at a base logical resolution of **640 × 360** pixels (16:9 aspect ratio) with sub-pixel crisp scaling.
 - **Responsive Layout:** Dynamically fits any screen aspect ratio from **16:9 up to 20.5:9** (modern smartphones) and desktop viewports up to **1920 × 1080** and **2560 × 1440**.
-- **Minimum Viewport:** Tested and fully playable down to mobile **360 × 640** (triggers orientation banner) / **640 × 360** landscape, and desktop **1280 × 720**.
+- **Viewport checks:** Historical Chromium checks covered **360 × 640** (portrait prompt), **640 × 360** landscape and **1280 × 720** desktop. Physical-device dimensions and readability observations are not yet recorded.
 
 ---
 
@@ -163,25 +165,25 @@ All production runtime code is bundled cleanly with no heavy runtime dependencie
 ---
 
 ## 15. AI Tools Used, Purpose, and Affected Code or Assets
-- **AI Tool & Model:** Claude Code (Anthropic; Claude Opus 5.5).
+- **AI Tools:** Claude Code (Anthropic; model recorded as Claude Opus 5.5) for development; Codex (OpenAI) for review, date corrections and validation documentation on 22 October 2026.
 - **Scope & Purpose:**
   - Pre-production design documentation structuring and mathematical timing balances.
   - Boilerplate scaffolding for SvelteKit TypeScript project configurations.
   - Co-authoring deterministic simulation physics, test fixtures, and automated solving bot scripts.
-- **Affected Files:** Source TypeScript files in `src/lib/game/` and markdown documentation in `docs/` and `preproduction/`.
-- **Zero AI Media:** No AI image generators (Midjourney, Stable Diffusion, etc.) and no AI audio/music generation models were used. All audio and visual presentation is procedurally rendered by handwritten code.
-- **Human Verification & Team Responsibility:** Every AI-assisted code commit was manually inspected, debugged, and validated through over 100 automated Vitest unit tests, headless Chromium browser simulations, and live device playthroughs. The team fully understands, maintains, and takes complete legal responsibility for all submitted code.
+- **Affected Files:** Initial assistance spans source, tests, scripts and documentation. Later Codex edits include submission/planning documents, validation records, progression-test date fixtures and the privacy-page date. See [AI use log](../docs/AI_USE_LOG.md).
+- **Media:** No image-, music- or voice-generation-model output is recorded. Visuals and audio are procedural; their rendering and synthesis code is within the disclosed AI-assisted scope.
+- **Human Verification & Team Responsibility:** On 22 October 2026 the owner reported completed code review, Android/iPhone checks, audio listening and playtesting by the three-member team, with positive feedback. Reviewer details, coverage, device versions and individual results remain to be recorded. Historical automated results are separate from this report; the team remains responsible for explaining and maintaining the submitted code.
 
 ---
 
 ## 16. Private Repository Access Instructions and Submission Tag
-- **Repository URL:** `https://github.com/youths-org/paradox-run` *(private GitHub repository)*
+- **Repository URL:** `https://github.com/LayaungHtut/Paradox-run` *(private GitHub repository)*
 - **Reviewer Access:** Collaborator / Read access granted to the official Digit7 Jam reviewer account announced by the organizing committee (`tournament@digit7s.com` / official reviewer handle).
 - **Official Submission Tag:** `submission-v1.0.0`
 - **Submission Commit Hash:** `cf7a89e021d4b6840733a1e285a9bc8110b42c67` *(or latest final tagged commit)*
 - **Build Reproducibility:**
   ```bash
-  git clone https://github.com/youths-org/paradox-run.git
+  git clone https://github.com/LayaungHtut/Paradox-run.git
   cd paradox-run
   git checkout submission-v1.0.0
   npm ci

@@ -39,7 +39,7 @@
 ## 2. Deterministic 60 Hz Simulation & Replay Engine
 
 ### A. Fixed-Step Physics Loop
-To guarantee that recorded past runs (echoes) behave with 100% mathematical fidelity across different devices, screen refresh rates (60 Hz, 90 Hz, 120 Hz, 144 Hz), and browser frame pacing, the simulation uses an accumulator-based fixed time step:
+To keep recorded past runs (echoes) consistent across rendering frame rates, the simulation uses an accumulator-based fixed time step. This design is not a substitute for cross-device replay testing:
 - **Tick Rate:** Fixed at exactly **60 ticks per second** (`Δt = 16.666 ms`).
 - **Input Sampling:** Inputs are gathered once per physics tick and packed into a compact 8-bit mask:
   - Bit 0: Move Left
@@ -61,8 +61,8 @@ To guarantee that recorded past runs (echoes) behave with 100% mathematical fide
 ### A. Virtual Resolution & Scaling
 - **Native Logical Resolution:** **640 × 360** (16:9 aspect ratio).
 - **Auto-Scaling Algorithm:** The canvas dynamically scales using CSS integer scaling / high-DPI device-pixel-ratio scaling. It letterboxes / pillarboxes gracefully to maintain proper aspect ratio without distortion.
-- **Desktop Testing (1280 × 720 & above):** Perfectly centered, pixel-crisp display with clear readability of all text, buttons, and timers.
-- **Mobile Testing (360 × 640 & wide phones):**
+- **Recorded viewport coverage:** Historical Chromium checks covered 360 × 640, 640 × 360 and 1280 × 720. Physical-device readability results have not been documented individually.
+- **Intended mobile behaviour (device checks reported complete; detailed results pending):**
   - **Landscape Mode (Target):** Controls automatically map to thumb regions (left 40% for directional steering, right 60% for jumps and dashes) keeping the action unobscured.
   - **Portrait Mode:** If opened vertically, the game automatically pauses gameplay and displays a dedicated, non-blocking "Rotate Device to Landscape" orientation guide, allowing immediate return to menu or seamless transition when the device is rotated.
 
@@ -70,13 +70,16 @@ To guarantee that recorded past runs (echoes) behave with 100% mathematical fide
 
 ## 4. Performance, Memory, and Asset Budgets
 
-| Metric | Digit7 Jam Target Limit | PARADOX RUN Measured Value | Status |
-| :--- | :--- | :--- | :--- |
-| **Initial Load Time** | ≤ 10 seconds | **< 0.6 seconds** on 3G / fast broadband | **Exceptional** |
-| **Playable ZIP Size** | ≤ 200 MB | **~ 2.1 MB** uncompressed (< 650 KB zipped) | **< 1.5% of limit** |
-| **Runtime Memory (RAM)**| Stable without leaks | **32 MB – 48 MB** steady heap usage | **Well within limits** |
-| **Framerate Stability** | 60 FPS without serious lag | **Rock-solid 60 FPS** on desktop & mobile | **Passed** |
-| **Cold Startup Latency** | Interactive without delay | **Instantaneous** (< 100 ms to interactive) | **Passed** |
+Performance figures must be tied to a tested build, device and measurement method. The earlier
+load-time, memory and mobile-FPS numbers had no supporting measurement record and are withdrawn.
+
+| Metric | Target | Recorded evidence |
+| --- | --- | --- |
+| Initial load | ≤ 10 seconds | No device/network-specific timing supplied |
+| Playable ZIP | ≤ 200 MB | Measure the final archive; no verified current size recorded here |
+| Runtime memory | Stable during extended play | No heap trace or leak investigation supplied |
+| Frame pacing | 60 FPS target | Team reports device testing; no hardware frame trace supplied |
+| Startup latency | Prompt interaction | No measured time-to-interactive supplied |
 
 ### Memory Management & Garbage Collection:
 - **Object Pooling:** Particle effects, projectile bolts, and timeline link lines are allocated from fixed reusable object pools to eliminate runtime garbage collection stutter.
@@ -104,17 +107,26 @@ In compliance with **Guide §7.7 (Security Requirement)** and **Guide §7.8 (API
 
 ## 6. Browser & Device Compatibility Matrix
 
-| Environment | Tested Operating Systems | Tested Browsers | Verification Status | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **Desktop / Laptop** | Windows 10, Windows 11, macOS Sonoma/Sequoia, Linux | Chrome 120+, Edge 120+, Firefox 120+, Safari 17+ | **Passed (Full)** | Keyboard controls (`A/D/Space/Shift/R`), mouse UI |
-| **Android Mobile** | Android 10, 11, 12, 13, 14 | Chrome Mobile, Firefox Mobile, Samsung Internet | **Passed (Full)** | Multi-touch gesture controls, vibration feedback |
-| **iOS Mobile** | iOS 16, iOS 17, iOS 18 (iPhone & iPad) | Mobile Safari, Chrome for iOS | **Passed (Full)** | Touch controls, dynamic audio unlock on tap |
+| Environment | Evidence | Details still required |
+| --- | --- | --- |
+| Desktop Chromium | Historical automated browser checks recorded in the AI use log | Exact submission-build result and browser version |
+| Other desktop browsers / operating systems | Broad compatibility previously claimed without a detailed matrix | Named OS/browser versions and individual test results |
+| Physical Android | Owner reports completed team checks | Model, OS/browser version, build, scenarios, findings and performance measurements |
+| Physical iPhone | Owner reports completed team checks | Model, iOS/browser version, build, scenarios, findings and performance measurements |
+| Installed Android app | Historical build/signature verification recorded | Confirm whether reported device checks included the native app |
+
+The owner's 22 October confirmation covers the three-member team's review, device/audio checks
+and playtesting, with positive tester feedback. It does not identify every tested platform.
+See [validation record](../docs/VALIDATION_RECORD.md).
+
 
 ---
 
 ## 7. Known Limitations and Edge Cases
 
-- **WebAudio Autoplay Policies:** Modern browsers block audio output until the user interacts with the page. PARADOX RUN detects this standard browser restriction and seamlessly unlocks the WebAudio context upon the player's very first tap or keypress, ensuring zero audio errors.
+- **Evidence gaps:** Reviewer names, device versions, measured hardware performance and detailed findings remain to be recorded. Five unfamiliar-player sessions have not been documented. The report of completed checks does not establish zero crashes, leaks or audio errors.
+
+- **WebAudio Autoplay Policies:** Modern browsers block audio output until the user interacts with the page. PARADOX RUN detects this standard browser restriction and seamlessly unlocks the WebAudio context upon the player's very first tap or keypress, subject to device-specific verification.
 - **Keyboard vs. Mouse Gameplay:** In-game character movement requires touch on mobile or keyboard on desktop. Desktop mouse control is intentionally dedicated to navigating menus, settings, and dialogue buttons.
 
 ---

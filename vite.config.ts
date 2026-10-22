@@ -82,6 +82,8 @@ export default defineConfig(({ mode }) => {
 					test: {
 						name: 'server',
 						environment: 'node',
+						// level-solver specs replay whole months of runs; 5s default flakes when all files run in parallel
+						testTimeout: 30_000,
 						include: ['src/**/*.{test,spec}.{js,ts}'],
 						exclude: ['src/**/*.svelte.{test,spec}.{js,ts}', 'src/**/*.browser.{test,spec}.{js,ts}']
 					}

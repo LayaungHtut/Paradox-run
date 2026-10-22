@@ -28,11 +28,11 @@ In accordance with Section 10 of the *Digit7 Jam Submission Format & Technical G
 
 To maintain absolute integrity, honesty, and full compliance with Rule §6 (Originality) and Rule §14 (Originality Review), the team provides the following detailed disclosures:
 
-**Quarantine & Fresh Implementation Policy:**
-- In strict adherence to Rule §6 forbidding pre-existing code, the exploratory spike was completely quarantined.
-- The official competition codebase and private GitHub repository were created fresh during October 2026.
+**Development Timeline:**
+- The prototype and planning documents were created on **16 October 2026**, during the competition development period.
+- The official competition codebase and private GitHub repository were created during October 2026.
 - All game levels, tile collision routines, WebAudio procedural instruments, player state machines, and HUD components were implemented from scratch during the active competition development window.
-- The commit log reflects this clean, step-by-step engineering progression.
+- The Git repository was initialised on 16 October 2026 with the work completed up to that date; all later work is committed incrementally so reviewers can follow its progression.
 
 ---
 

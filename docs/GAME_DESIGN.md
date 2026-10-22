@@ -95,19 +95,26 @@ Stars: ★ clear · ★★ under par · ★★★ under par with every shard.
 
 ## Known limitations
 
-1. **Tested in emulation, not on real phones.** The Android app was built and its signature
-   verified, but it has not been launched on a device or emulator. Touch, layout and performance were verified in Chromium
-   (desktop and phone emulation at 360×640, 640×360 and 1280×720). They have not been tried on physical
-   iOS or Android hardware. iOS Safari allows no fullscreen or orientation lock for web pages.
-2. **Audio untuned by ear.** Automated browser tests prove every sound renders clean, audible signal
-   without clipping, but mix balance and taste need a human listen.
+1. **Device-test details are incomplete.** On 22 October 2026 the owner reported that the
+   three-member team completed physical Android/iPhone checks. Device models, OS/browser
+   versions, scenarios, findings and whether the native Android app was exercised have not
+   been supplied. Earlier automated testing used desktop Chromium and phone emulation.
+2. **Audio listening is reported complete.** The team reports listening checks and positive
+   tester feedback. Listening conditions, mix observations and any tuning changes are not
+   documented. Automated signal checks alone do not establish mix quality.
 3. **Content is 9 levels.** Dailies remix them; a dedicated player will recognise the layouts.
-4. **Weak-device performance is unmeasured on hardware.** The sim costs about 7.5 µs per tick, and
-   rendering JS about 1 ms per frame with three echoes. Under 4× CPU throttling in headless Chromium
-   (software rasterisation) frames average about 60 ms; adaptive quality drops decorative layers and
-   then resolution. Real GPU-rasterised phones should do far better, but that is unverified.
+4. **Hardware performance measurements are not recorded.** Historical development notes report
+   about 7.5 µs per simulation tick and 1 ms of rendering JavaScript per frame with three echoes.
+   They also report roughly 60 ms frames under 4× CPU throttling in headless Chromium with
+   software rasterisation. These are development-environment observations, not measurements
+   on the team's phones. Reported device testing does not establish a universal 60 FPS result.
 5. **Leaderboard hosting** needs one Node process with a disk (Docker image, Fly.io and Render configs
    are included). Static sites and the Android app use it remotely via `VITE_API_URL`; a serverless-only
    host still cannot run the leaderboard itself.
 6. **Identity is anonymous.** Names are not unique. Local progress survives only on the device, or via
    a backup code (Settings → Save data) that the player copies themselves.
+7. **Unfamiliar-player outcomes are not documented.** The owner reports positive tester feedback,
+   but the number of unfamiliar players, unaided completion and replay interest are unspecified.
+
+See [Review and playtest record](VALIDATION_RECORD.md) for the owner-reported completion,
+review/device details to fill in, and a five-player observation template.

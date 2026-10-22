@@ -48,18 +48,22 @@ submission/
 | **4. Game Description** | Required | `DEVELOPER_PORTAL_SUBMISSION.md` | Core time-loop echo premise & arcade mechanics |
 | **5. Playable Game Link** | Required | `https://gamejam.digit7s.com/teams/youths-org/` | Deployed to Digit7s hosting environment; HTTPS |
 | **6. Playable Build ZIP** | Required | `Digit7Jam_YOUTHsOrg_ParadoxRun.zip` | Standalone static runtime bundle (≤ 200 MB; ~2 MB actual) |
-| **7. Private GitHub Repo** | Required | `https://github.com/youths-org/paradox-run` | Reviewer access granted; tagged `submission-v1.0.0` |
+| **7. Private GitHub Repo** | Required | `https://github.com/LayaungHtut/Paradox-run` | Reviewer access granted; tagged `submission-v1.0.0` |
 | **8. README File** | Required | `README_YOUTHsOrg_ParadoxRun.md` | Covers all 17 items from Guide §6 |
 | **9. Screenshots (≥ 3)** | Required | `submission/screenshots/` | 5 high-resolution 16:9 gameplay PNGs |
 | **10. Demo Video (1–3 min)** | Required | `DEMO_VIDEO_GUIDE.md` / MP4 link | 2-minute captioned walkthrough with all 7 segments |
 | **11. Asset Credit List** | Required | `ASSET_CREDIT_LIST.md` | Declares 100% procedural art/audio + OSS libraries |
 | **12. License Proof** | Required (if OSS used) | `LICENSE_PROOF.md` | Complete MIT & Apache-2.0 verification proofs |
 | **13. Originality Declaration**| Required | `ORIGINALITY_DECLARATION.md` | Confirms all 8 points in Guide §10; preproduction disclosure |
-| **14. Team Profile** | Required | `TEAM_PROFILE.md` | 4 members, distinct roles, Myanmar citizenship verified |
+| **14. Team Profile** | Required | `TEAM_PROFILE.md` | 3 members reported; names and actual roles to confirm |
 | **15. Technical Notes** | Required | `TECHNICAL_NOTES.md` | Deterministic 60Hz physics, WebAudio synth, 0 tracking |
-| **16. AI Use Declaration** | Required | `AI_USE_DECLARATION.md` | Full disclosure of Claude Code assistance; 0 AI media |
+| **16. AI Use Declaration** | Required | `AI_USE_DECLARATION.md` | Claude Code and Codex assistance; reported review/testing status and evidence limits |
 
 ---
+
+## Supporting validation record
+
+[Review and playtest record](../docs/VALIDATION_RECORD.md) records the owner's confirmation of completed team checks, positive feedback, missing reviewer/device details and a five-player observation template. Keep it aligned with the submission claims.
 
 ## 3. Playable Build ZIP Packaging Guide (Guide §4 & §5)
 

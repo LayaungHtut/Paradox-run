@@ -2,7 +2,7 @@
 	import PageShell from '$lib/components/PageShell.svelte';
 	import { CONTACT_EMAIL, ONLINE_ENABLED } from '$lib/config';
 
-	const UPDATED = '2026-09-26';
+	const UPDATED = '2026-10-22';
 </script>
 
 <svelte:head><title>Privacy policy · PARADOX RUN</title></svelte:head>

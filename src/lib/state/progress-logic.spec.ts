@@ -114,17 +114,17 @@ describe('progression', () => {
 		const d = emptyProgress();
 		const run = (key: string) =>
 			applyDailyResult(d, key, result('relay'), timeline('relay'), ctx, 16);
-		run('2026-09-20');
+		run('2026-10-20');
 		expect(d.streak).toBe(1);
-		run('2026-09-20'); // same day again: no change
+		run('2026-10-20'); // same day again: no change
 		expect(d.streak).toBe(1);
-		run('2026-09-21');
-		const third = run('2026-09-22');
+		run('2026-10-21');
+		const third = run('2026-10-22');
 		expect(d.streak).toBe(3);
 		expect(third.unlocked).toContain('habit');
-		run('2026-09-25');
+		run('2026-10-25');
 		expect(d.streak).toBe(1);
-		expect(d.daily['2026-09-20'].attempts).toBe(2);
+		expect(d.daily['2026-10-20'].attempts).toBe(2);
 	});
 
 	it('prunes old daily records', () => {
@@ -171,7 +171,7 @@ describe('save recovery', () => {
 				decoy: 'corrupted',
 				overdrive: { clears: 0 }
 			},
-			daily: { '2026-09-01': { bestScore: 10, bestTicks: 100, attempts: 2 }, notadate: {} },
+			daily: { '2026-10-01': { bestScore: 10, bestTicks: 100, attempts: 2 }, notadate: {} },
 			lastDaily: 12,
 			streak: -3,
 			achievements: { 'hello-me': 123, bad: 'x' },
@@ -184,7 +184,7 @@ describe('save recovery', () => {
 		expect(p.levels.relay.bestTimeline).toBeNull();
 		expect(p.levels.decoy).toBeUndefined();
 		expect(p.levels.overdrive).toBeUndefined();
-		expect(Object.keys(p.daily)).toEqual(['2026-09-01']);
+		expect(Object.keys(p.daily)).toEqual(['2026-10-01']);
 		expect(p.lastDaily).toBeNull();
 		expect(p.streak).toBe(0);
 		expect(p.achievements).toEqual({ 'hello-me': 123 });

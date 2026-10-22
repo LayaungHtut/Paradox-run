@@ -1,107 +1,75 @@
 # AI USE DECLARATION
 
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
-**Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
 **Team Name:** YOUTHs Org  
-**Date of Declaration:** October 2026  
-**Compliance Reference:** Digit7 Jam Official Participation Rules §8 & Technical Guide §9, §16
+**Updated:** 22 October 2026
 
----
+## 1. Disclosure and review status
 
-## 1. Executive Summary & Policy Compliance
+AI tools assisted with code, tests, planning and documentation. On 22 October 2026, the
+project owner confirmed that they and two other team members completed human code review,
+physical Android/iPhone checks, audio listening checks and playtesting. The owner also
+reported that testers said it was a "good game".
 
-In strict compliance with **Section 9 (AI Use Requirement)** of the *Digit7 Jam Submission Format & Technical Guide* and **Rule 8 (AI Use Policy)** of the *Official Participation Rules*, Team YOUTHs Org provides this formal disclosure of all Artificial Intelligence (AI) tools and models utilized in the production of **PARADOX RUN**.
+This is a team-reported completion statement. Reviewer names, review scope, test dates,
+device/browser versions and individual findings have not yet been entered in the
+[validation record](../docs/VALIDATION_RECORD.md). We do not claim that every line or every
+commit received a documented review, or that testing proves the absence of bugs or leaks.
+The team is responsible for the submitted work and for explaining and maintaining it.
 
-The development team affirms that:
-1. Every line of AI-assisted code was manually reviewed, verified, refactored, and tested by team engineers.
-2. The team retains full architectural ownership, comprehension, and ongoing maintenance capability of the entire codebase.
-3. No confidential, proprietary, or personally identifiable data was shared with any AI system.
-4. No third-party copyrights or licenses were infringed through AI usage.
+## 2. Tools and affected work
 
----
+| Tool | Period | Assistance and affected files |
+| --- | --- | --- |
+| Claude Code (Anthropic; model recorded in the development log as Claude Opus 5.5) | From 16 October 2026 | Initial implementation and revisions across source, tests, build scripts and documentation: simulation, rendering, procedural audio, UI, replay validation and deployment. See the [AI use log](../docs/AI_USE_LOG.md). |
+| Codex (OpenAI) | 22 October 2026 | Project assessment, date corrections, verification-claim reconciliation and playtest-record preparation. Affected submission/planning documents, the AI use log, game design and validation record, date fixtures in `src/lib/state/progress-logic.spec.ts`, and the privacy-page update date in `src/routes/privacy/+page.svelte`. |
 
-## 2. Category-by-Category AI Use Status
+The recorded Claude model name is carried forward from the development log, not independently
+verified by this documentation update.
 
-| AI Item / Asset Category | Status in Submission | Disclosure Details & Verification |
-| :--- | :--- | :--- |
-| **AI-Generated Code** | **Permitted & Disclosed** | **Assisted by Claude Code (Anthropic; Claude Opus 5.5).** Used to draft initial module scaffolding, test cases, deterministic math algorithms, and build scripts. Every module was inspected, debugged, and validated through 100+ automated tests and human review. |
-| **AI-Generated Art** | **None Used (0%)** | Zero AI image models (e.g., Midjourney, DALL-E, Stable Diffusion) were used. All visual elements, tiles, sprites, HUD icons, and particles are procedurally rendered in real-time via handwritten HTML5 Canvas 2D vector code. |
-| **AI-Generated Music** | **None Used (0%)** | Zero AI music generators (e.g., Suno, Udio) were used. All background audio is generated dynamically at runtime via native WebAudio oscillator frequency calculations written directly in TypeScript. |
-| **AI-Generated Voice / SFX** | **None Used (0%)** | Zero voice recordings or AI voice synthesizers (e.g., ElevenLabs) were used. All sound effects are mathematical frequency sweeps and noise bursts synthesized live in WebAudio. |
-| **Other Non-Code AI Assets** | **None Used (0%)** | No pre-rendered AI textures, fonts, 3D models, or story scripts were incorporated. |
+## 3. Media and code assistance
 
----
+| Category | Disclosure |
+| --- | --- |
+| Code and documentation | AI-assisted. Scope includes rendering and audio-synthesis code as well as gameplay, tests and documentation. |
+| Images and visual assets | No image-generation-model output is recorded. Visuals are drawn procedurally by Canvas/SVG code; that code is within the disclosed AI-assisted scope. |
+| Music and sound effects | No music-, voice- or audio-generation-model output is recorded. Audio is synthesized by WebAudio code; that code is within the disclosed AI-assisted scope. |
+| Other generated media | No pre-rendered AI textures, fonts, 3D models or voice recordings are recorded. |
 
-## 3. Tool Inventory & Scope of Assistance
+## 4. Verification and its limits
 
-### Primary Tool Used
-- **Tool Name:** Claude Code (Command-line Assistant)
-- **Developer / Provider:** Anthropic, PBC
-- **Underlying Model:** Claude Opus 5.5
-- **Operating Period:** October 2026 (Development Phase)
+- **Historical automated checks:** The AI use log records Vitest, type/lint checks, Chromium
+  browser runs, replay validation and build checks performed during development. Counts such
+  as 107 refer to those historical runs, not a new full-suite result for this submission.
+- **Recent targeted check:** Nine progression tests passed during the 22 October date
+  corrections; the Svelte autofixer reported no issues or suggestions for the privacy page.
+- **Human review and device/audio testing:** Completion is reported by the owner for the
+  three-member team. Detailed evidence is being recorded separately; automated checks do not
+  establish human understanding, sound quality or hardware performance.
+- **Gameplay tests:** Scripted solutions exercise known routes. A route failing without echoes
+  does not mathematically prove that every possible solo route is impossible.
+- **Audio and memory:** Signal tests check the sampled sound outputs. They do not prove the
+  quality of the mix or the absence of all memory leaks. No hardware-wide 60 FPS claim is made.
+- **Unfamiliar-player feedback:** Positive feedback has been reported. The count, prior
+  familiarity and observed outcomes of five independent sessions are not yet documented.
 
-### Specific Scope of Utilization
-1. **Mathematical Simulation & Determinism:**
-   - Assistance with formulating fixed-step 60 Hz Euler physics equations, coyote-time jump buffers, sub-pixel axis-aligned bounding box (AABB) collisions, and tile-map raycasting.
-2. **Deterministic Replay Codec:**
-   - Assistance in designing an efficient bitmask serialization algorithm to pack per-frame player inputs (Left, Right, Jump, Dash) into compact byte streams for echo playback.
-3. **Automated Verification & Solvability Bots:**
-   - Writing scripted closed-loop "player bot" test fixtures in Vitest that autonomously simulate and verify that all campaign levels are 100% solvable with echoes and mathematically impossible without them.
-4. **Documentation & Formatting:**
-   - Structuring markdown technical architecture guides, deployment procedures, and tournament compliance documentation.
+The [validation record](../docs/VALIDATION_RECORD.md) tracks reported completion, missing
+details and follow-up observations. New edits, including this declaration, still need team
+review; the owner's earlier confirmation does not automatically cover later changes.
 
----
+## 5. Portal disclosure text
 
-## 4. Human Review, Testing, and Quality Assurance Process
+> Claude Code (Anthropic; model recorded as Claude Opus 5.5) assisted with implementation,
+> tests, planning and documentation from 16 October 2026. Codex (OpenAI) assisted with project
+> review, date corrections and validation documentation on 22 October 2026. AI assistance
+> includes procedural rendering and audio code; no image-, music- or voice-generation-model
+> output is recorded. The owner reports completed human code review, Android/iPhone checks,
+> audio listening checks and playtesting by the three-member team, with positive tester
+> feedback. Reviewer details, device versions and individual results remain to be entered in
+> the validation record. Historical automated checks are listed separately in the AI use log.
 
-Under Digit7 Jam rules, the submission must demonstrate that the team actively reviewed and maintains the code. The following multi-tiered validation workflow was enforced for every commit:
+**Team representative:** Name/signature to be supplied after review of this updated declaration.
 
-```
-[AI Proposal / Draft] 
-       │
-       ▼
-[Human Code Review]  ──► Inspect logic, variable names, boundary conditions, edge cases
-       │
-       ▼
-[Type & Static Check] ──► svelte-check (TypeScript) + ESLint + Prettier
-       │
-       ▼
-[Automated Test Suite] ──► 107 Vitest tests (Deterministic Physics, Collision, Solvability)
-       │
-       ▼
-[Real Browser Testing] ──► Headless Chromium (Playwright) + Mobile Touch Playtesting
-       │
-       ▼
-[Signed Approval & Commit] ──► Merged into submission repository
-```
-
-### Key Verification Milestones:
-- **Memory & Resource Safety:** Automated tests verify that WebAudio contexts and Canvas frame buffers do not leak memory or accumulate stale references during repeated loop rewinds.
-- **Audio Integrity:** Automated headless Chromium sweeps sampled every synthesized sound effect offline to confirm zero audio clipping, zero NaN audio buffers, and clean dynamic range.
-- **Explainability:** All core modules (`world.ts`, `actors.ts`, `audio.ts`, `loop.ts`, `mechanisms.ts`) have clear inline docstrings and explicit architecture mappings so team members can explain any line during judging reviews.
-
----
-
-## 5. Portal AI Use Declaration (Ready-to-Paste Text)
-
-For direct entry into the **Digit7 Jam Developer Portal** submission field:
-
-> **AI Tools Used and Purpose:**  
-> Claude Code (Anthropic, model: Claude Opus 5.5) was used during October 2026 for development assistance: drafting deterministic physics routines, input bitmask replay codecs, Vitest automated test fixtures, and technical documentation.  
->   
-> **Affected Code & Assets:**  
-> TypeScript source files within the game simulation, state logic, and test suites.  
->   
-> **Media Status:**  
-> Absolutely no AI-generated images, music, voices, or textures were used. 100% of the game's visuals are procedural Canvas 2D vector code, and 100% of sound/music is live WebAudio synthesis written in TypeScript.  
->   
-> **Human Review & Verification:**  
-> Every AI-assisted code segment underwent rigorous manual code review, refactoring, and automated verification through 107 Vitest tests and headless browser validation. The team fully understands, maintains, and assumes complete legal and technical responsibility for the entire codebase.
-
----
-
-**Signed by Team YOUTHs Org:**  
-- **Lead Developer & Technical Contact:** Lead Developer, YOUTHs Org  
-- **Date:** October 2026
+**Signature date:** To be supplied.
 
