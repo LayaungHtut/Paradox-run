@@ -20,22 +20,22 @@ The team is responsible for the submitted work and for explaining and maintainin
 
 ## 2. Tools and affected work
 
-| Tool | Period | Assistance and affected files |
-| --- | --- | --- |
-| Claude Code (Anthropic; model recorded in the development log as Claude Opus 5.5) | From 16 October 2026 | Initial implementation and revisions across source, tests, build scripts and documentation: simulation, rendering, procedural audio, UI, replay validation and deployment. See the [AI use log](../docs/AI_USE_LOG.md). |
-| Codex (OpenAI) | 22 October 2026 | Project assessment, date corrections, verification-claim reconciliation and playtest-record preparation. Affected submission/planning documents, the AI use log, game design and validation record, date fixtures in `src/lib/state/progress-logic.spec.ts`, and the privacy-page update date in `src/routes/privacy/+page.svelte`. |
+| Tool                                                                              | Period               | Assistance and affected files                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Code (Anthropic; model recorded in the development log as Claude Opus 5.5) | From 16 October 2026 | Initial implementation and revisions across source, tests, build scripts and documentation: simulation, rendering, procedural audio, UI, replay validation and deployment. See the [AI use log](../docs/AI_USE_LOG.md).                                                                                                             |
+| Codex (OpenAI)                                                                    | 22 October 2026      | Project assessment, date corrections, verification-claim reconciliation and playtest-record preparation. Affected submission/planning documents, the AI use log, game design and validation record, date fixtures in `src/lib/state/progress-logic.spec.ts`, and the privacy-page update date in `src/routes/privacy/+page.svelte`. |
 
 The recorded Claude model name is carried forward from the development log, not independently
 verified by this documentation update.
 
 ## 3. Media and code assistance
 
-| Category | Disclosure |
-| --- | --- |
-| Code and documentation | AI-assisted. Scope includes rendering and audio-synthesis code as well as gameplay, tests and documentation. |
-| Images and visual assets | No image-generation-model output is recorded. Visuals are drawn procedurally by Canvas/SVG code; that code is within the disclosed AI-assisted scope. |
-| Music and sound effects | No music-, voice- or audio-generation-model output is recorded. Audio is synthesized by WebAudio code; that code is within the disclosed AI-assisted scope. |
-| Other generated media | No pre-rendered AI textures, fonts, 3D models or voice recordings are recorded. |
+| Category                 | Disclosure                                                                                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Code and documentation   | AI-assisted. Scope includes rendering and audio-synthesis code as well as gameplay, tests and documentation.                                                |
+| Images and visual assets | No image-generation-model output is recorded. Visuals are drawn procedurally by Canvas/SVG code; that code is within the disclosed AI-assisted scope.       |
+| Music and sound effects  | No music-, voice- or audio-generation-model output is recorded. Audio is synthesized by WebAudio code; that code is within the disclosed AI-assisted scope. |
+| Other generated media    | No pre-rendered AI textures, fonts, 3D models or voice recordings are recorded.                                                                             |
 
 ## 4. Verification and its limits
 
@@ -72,4 +72,3 @@ review; the owner's earlier confirmation does not automatically cover later chan
 **Team representative:** Name/signature to be supplied after review of this updated declaration.
 
 **Signature date:** To be supplied.
-

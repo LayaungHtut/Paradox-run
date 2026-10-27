@@ -13,6 +13,8 @@ export interface SettingsData {
 	reducedFlashing: boolean;
 	/** race your own fastest run as a gold ghost */
 	bestGhost: boolean;
+	/** open every level without clearing the one before (lets judges jump anywhere) */
+	unlockAll: boolean;
 	keys: KeyBindings;
 }
 
@@ -26,6 +28,7 @@ const DEFAULTS: SettingsData = {
 	muted: false,
 	reducedFlashing: false,
 	bestGhost: true,
+	unlockAll: false,
 	keys: DEFAULT_KEYS
 };
 const VERSION = 1;

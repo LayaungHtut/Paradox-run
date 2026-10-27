@@ -14,7 +14,7 @@
 **Organization Type:** Independent Developer Team / Tech Enthusiasts  
 **Country of Citizenship:** Myanmar (Compliant with Eligibility Rule §2.1)  
 **Primary Focus:** Web technologies, interactive game development, and algorithmic audio-visual systems.  
-**Motto:** *"Code. Create. Compete. Win."*
+**Motto:** _"Code. Create. Compete. Win."_
 
 ---
 
@@ -23,10 +23,10 @@
 In accordance with Participation Rule §3, one primary contact person has been appointed to handle all official communications, technical updates, verification requests, and prize coordination with Digit7s Myanmar:
 
 - **Main Contact Person / Leader:** [Team Lead Name / Lead Representative]
-- **Email Address:** `contact@youths.org` *(or registered submission email)*
-- **Phone Number:** **TODO: team lead's real phone number** *(the number previously here belonged to Digit7s, not the team)*
-- **Telegram Username:** `@youths_admin` *(registered Telegram handle for tournament support)*
-- **Registration ID:** `D7J-2026-REG-XXXX` *(issued upon official portal registration)*
+- **Email Address:** `contact@youths.org` _(or registered submission email)_
+- **Phone Number:** **TODO: team lead's real phone number** _(the number previously here belonged to Digit7s, not the team)_
+- **Telegram Username:** `@youths_admin` _(registered Telegram handle for tournament support)_
+- **Registration ID:** `D7J-2026-REG-XXXX` _(issued upon official portal registration)_
 
 ---
 
@@ -35,6 +35,7 @@ In accordance with Participation Rule §3, one primary contact person has been a
 The owner reports a three-member team. Fill in member names and confirm the draft role allocation below before submission:
 
 ### Member 1: Team Lead & Systems Architect
+
 - **Role:** Lead Gameplay Engineer & Systems Architect
 - **Responsibilities:**
   - Designed the deterministic 60 Hz fixed-step physics loop and custom input bitmask replay codec.
@@ -42,13 +43,15 @@ The owner reports a three-member team. Fill in member names and confirm the draf
   - Oversaw technical screening readiness, automated Vitest pipelines, and static build optimizations.
 
 ### Member 2: Game Designer & Level Architect
+
 - **Role:** Lead Game Designer & Level Crafter
 - **Responsibilities:**
-  - Authored the core gameplay progression and teaching curves across all 9 campaign levels.
+  - Authored the core gameplay progression and teaching curves across the 50 levels (15 campaign + 35 expansion).
   - Balanced puzzle timings, pressure-plate relay windows, turret tracking arcs, and par scores.
   - Designed the "Daily Paradox" dynamic modifier system and achievement milestones.
 
 ### Member 3: Frontend & Audio Systems Engineer
+
 - **Role:** Procedural Audio & UI Shell Engineer
 - **Responsibilities:**
   - Engineered the procedural WebAudio oscillator synthesis engine for dynamic music and sound effects.
@@ -63,12 +66,11 @@ specific responsibilities, tested devices and findings remain to be entered in t
 [validation record](../docs/VALIDATION_RECORD.md). The role descriptions above are a draft
 allocation and need confirmation against each member's actual work.
 
-
 ---
 
 ## 4. Technical Background & Competition Vision
 
-Team YOUTHs Org entered Digit7 Jam 2026 with a bold ambition: **to build a pure, uncompromising arcade experience natively designed for the open web.** 
+Team YOUTHs Org entered Digit7 Jam 2026 with a bold ambition: **to build a pure, uncompromising arcade experience natively designed for the open web.**
 
 The team aims to deliver responsive controls, smooth animation and engaging cooperative gameplay using Canvas 2D, WebAudio and Svelte 5. Load time, frame pacing and final package size should be reported from measurements of the submitted build.
 
@@ -76,7 +78,7 @@ The team aims to deliver responsive controls, smooth animation and engaging coop
 
 ---
 
-**Certified by Team YOUTHs Org:**  
-- **Lead Developer & Representative:** Lead Developer, YOUTHs Org  
-- **Date:** October 2026
+**Certified by Team YOUTHs Org:**
 
+- **Lead Developer & Representative:** Lead Developer, YOUTHs Org
+- **Date:** October 2026

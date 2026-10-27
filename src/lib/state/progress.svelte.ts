@@ -12,6 +12,7 @@ import {
 	type RecordOutcome,
 	type RunContext
 } from './progress-logic';
+import { settings } from './settings.svelte';
 import { loadJson, saveJson } from './storage';
 
 export type { DailyRecord, LevelRecord, ProgressData, RecordOutcome } from './progress-logic';
@@ -44,7 +45,7 @@ class Progress {
 	}
 
 	isUnlocked(levelId: string): boolean {
-		return isUnlocked(this.data, CAMPAIGN, levelId);
+		return settings.data.unlockAll || isUnlocked(this.data, CAMPAIGN, levelId);
 	}
 
 	/** First level without a clear, or the last level. */

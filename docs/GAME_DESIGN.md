@@ -102,7 +102,7 @@ Stars: ★ clear · ★★ under par · ★★★ under par with every shard.
 2. **Audio listening is reported complete.** The team reports listening checks and positive
    tester feedback. Listening conditions, mix observations and any tuning changes are not
    documented. Automated signal checks alone do not establish mix quality.
-3. **Content is 9 levels.** Dailies remix them; a dedicated player will recognise the layouts.
+3. **Content is 50 levels** (15 campaign + 35 expansion). Dailies remix them; a dedicated player will recognise the layouts.
 4. **Hardware performance measurements are not recorded.** Historical development notes report
    about 7.5 µs per simulation tick and 1 ms of rendering JavaScript per frame with three echoes.
    They also report roughly 60 ms frames under 4× CPU throttling in headless Chromium with

@@ -237,6 +237,16 @@
 				</div>
 			{/if}
 
+			{#if !touch && !intro && hud && !done}
+				<div class="keys legend" aria-hidden="true">
+					<span><kbd>{keys.move}</kbd> run</span>
+					<span><kbd>{keys.jump}</kbd> jump</span>
+					<span><kbd>{keys.dash}</kbd> dash</span>
+					<span><kbd>{keys.rewind}</kbd> rewind</span>
+					<span><kbd>{keys.pause}</kbd> pause</span>
+				</div>
+			{/if}
+
 			{#if toast}
 				{#key toast.id}
 					<div class="toast fade-up" class:ach={toast.kind === 'ach'} role="status">
@@ -344,6 +354,17 @@
 		color: #dff3ff;
 		font-family: var(--font-mono);
 		font-size: 0.72rem;
+	}
+	.legend {
+		position: absolute;
+		left: calc(12px + var(--safe-l));
+		bottom: calc(10px + var(--safe-b, 0px));
+		margin: 0;
+		justify-content: flex-start;
+		font-size: 0.7rem;
+		opacity: 0.6;
+		pointer-events: none;
+		z-index: 3;
 	}
 	.ready {
 		position: absolute;

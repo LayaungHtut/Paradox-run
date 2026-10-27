@@ -20,6 +20,7 @@ export const LEVEL_1: LevelDef = {
 	},
 	signs: [
 		{ x: 5, y: 8, text: 'RUN [{move}]  ·  JUMP [{jump}]' },
+		{ x: 5, y: 9, text: 'DASH [{dash}]  ·  REWIND [{rewind}]' },
 		{ x: 16, y: 8, text: 'MIND THE SPIKES' },
 		{ x: 30, y: 7, text: 'PLATE HOLDS THE GATE' },
 		{ x: 30, y: 8, text: '…while something stands on it' }

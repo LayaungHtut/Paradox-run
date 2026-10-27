@@ -14,6 +14,7 @@
 This document provides formal verification and evidence that **Team YOUTHs Org** possesses full legal authorization to use, distribute, and execute all software libraries, tools, and code comprising the submission **PARADOX RUN**.
 
 ### Key Legal Verification Highlights:
+
 1. **Zero Media Licensing Risks:**  
    The game contains **no external art, sprite packs, 3D meshes, textures, music tracks, sound samples, or downloaded fonts.** All visuals are rendered procedurally in Canvas 2D, and all audio is synthesized in real-time via WebAudio. As such, there are zero royalty, trademark, or media copyright risks.
 2. **Permissive Open-Source Software (OSS):**  
@@ -24,9 +25,11 @@ This document provides formal verification and evidence that **Team YOUTHs Org**
 ## 2. Inventory of Third-Party Dependencies & License Texts
 
 ### A. Svelte 5 & SvelteKit (UI Framework & Routing)
+
 - **Repository:** `https://github.com/sveltejs/svelte` and `https://github.com/sveltejs/kit`
 - **Copyright:** (c) 2016–2026 Svelte contributors
 - **License:** MIT License
+
 ```text
 MIT License
 
@@ -54,9 +57,11 @@ SOFTWARE.
 ---
 
 ### B. Vite 5 (Frontend Build Tool)
+
 - **Repository:** `https://github.com/vitejs/vite`
 - **Copyright:** (c) 2019–present, Yuxi (Evan) You and Vite contributors
 - **License:** MIT License
+
 ```text
 MIT License
 
@@ -70,9 +75,11 @@ in the Software without restriction... [Standard MIT terms apply]
 ---
 
 ### C. TypeScript 5 (Programming Language Compiler)
+
 - **Repository:** `https://github.com/microsoft/TypeScript`
 - **Copyright:** (c) Microsoft Corporation. All rights reserved.
 - **License:** Apache License, Version 2.0
+
 ```text
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -90,9 +97,11 @@ limitations under the License.
 ---
 
 ### D. Tailwind CSS 3 (Styling Framework)
+
 - **Repository:** `https://github.com/tailwindlabs/tailwindcss`
 - **Copyright:** (c) Tailwind Labs, Inc.
 - **License:** MIT License
+
 ```text
 MIT License
 
@@ -105,9 +114,11 @@ of this software and associated documentation files (the "Software")... [Standar
 ---
 
 ### E. Vitest (Automated Testing Framework)
+
 - **Repository:** `https://github.com/vitest-dev/vitest`
 - **Copyright:** (c) 2021–present Anthony Fu and Vitest contributors
 - **License:** MIT License
+
 ```text
 MIT License
 
@@ -131,15 +142,17 @@ Copyright (c) 2021-present Anthony Fu and Vitest contributors
 
 All direct and transitive dependencies are locked via a deterministic `package-lock.json` file in the project repository.  
 Any reviewer or judge can verify license compliance across the entire dependency graph using standard audit tools:
+
 ```bash
 # Automated license check via npm
 npx license-checker --summary
 ```
+
 The output confirms 100% compliance under MIT and Apache-2.0 licenses.
 
 ---
 
-**Signed by Team YOUTHs Org:**  
-- **Lead Developer & Representative:** Lead Developer, YOUTHs Org  
-- **Date:** October 2026
+**Signed by Team YOUTHs Org:**
 
+- **Lead Developer & Representative:** Lead Developer, YOUTHs Org
+- **Date:** October 2026

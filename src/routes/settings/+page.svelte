@@ -42,7 +42,12 @@
 			label: 'Race your best ghost',
 			hint: 'Your fastest run replays beside you in gold'
 		},
-		{ key: 'showFps', label: 'Show FPS', hint: 'Performance overlay in the HUD' }
+		{ key: 'showFps', label: 'Show FPS', hint: 'Performance overlay in the HUD' },
+		{
+			key: 'unlockAll',
+			label: 'Unlock all levels',
+			hint: 'Play any level without clearing the ones before it'
+		}
 	];
 
 	let confirmReset = $state(false);

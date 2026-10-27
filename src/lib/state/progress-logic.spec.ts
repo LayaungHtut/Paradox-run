@@ -202,6 +202,7 @@ describe('save recovery', () => {
 			muted: false,
 			reducedFlashing: false,
 			bestGhost: true,
+			unlockAll: false,
 			keys: DEFAULT_KEYS
 		};
 		const s = sanitizeSettings(defaults, { sfx: 'loud', music: 7, muted: 'yes', showFps: true });

@@ -39,7 +39,9 @@
 ## 2. Deterministic 60 Hz Simulation & Replay Engine
 
 ### A. Fixed-Step Physics Loop
+
 To keep recorded past runs (echoes) consistent across rendering frame rates, the simulation uses an accumulator-based fixed time step. This design is not a substitute for cross-device replay testing:
+
 - **Tick Rate:** Fixed at exactly **60 ticks per second** (`Δt = 16.666 ms`).
 - **Input Sampling:** Inputs are gathered once per physics tick and packed into a compact 8-bit mask:
   - Bit 0: Move Left
@@ -50,6 +52,7 @@ To keep recorded past runs (echoes) consistent across rendering frame rates, the
 - **Collision Detection:** Continuous Axis-Aligned Bounding Box (AABB) sweeps against a discrete tile grid, with corner-rounding correction for responsive platforming.
 
 ### B. Echo Storage & Deterministic Playback
+
 - When a loop ends (via death, timer expiry, or manual rewind), the array of recorded input bitmasks is stored in memory.
 - When the next loop begins, the game world resets, and active echoes re-execute the exact bitmask sequence starting at tick 0.
 - Echoes interact with the world physically (triggering pressure plates, tripping timed relays, and intercepting turret bullets) but do not collide with each other or the living player.
@@ -59,12 +62,13 @@ To keep recorded past runs (echoes) consistent across rendering frame rates, the
 ## 3. Responsive Display, Resolution, and Viewport Handling
 
 ### A. Virtual Resolution & Scaling
+
 - **Native Logical Resolution:** **640 × 360** (16:9 aspect ratio).
 - **Auto-Scaling Algorithm:** The canvas dynamically scales using CSS integer scaling / high-DPI device-pixel-ratio scaling. It letterboxes / pillarboxes gracefully to maintain proper aspect ratio without distortion.
 - **Recorded viewport coverage:** Historical Chromium checks covered 360 × 640, 640 × 360 and 1280 × 720. Physical-device readability results have not been documented individually.
 - **Intended mobile behaviour (device checks reported complete; detailed results pending):**
   - **Landscape Mode (Target):** Controls automatically map to thumb regions (left 40% for directional steering, right 60% for jumps and dashes) keeping the action unobscured.
-  - **Portrait Mode:** If opened vertically, the game automatically pauses gameplay and displays a dedicated, non-blocking "Rotate Device to Landscape" orientation guide, allowing immediate return to menu or seamless transition when the device is rotated.
+  - **Portrait Mode:** Fully playable when held vertically: the HUD drops the loop bar to a second row, the touch controls restack, and the level intro shows a "turn sideways for a wider view" tip. Rotating mid-run re-lays out without pausing.
 
 ---
 
@@ -73,15 +77,16 @@ To keep recorded past runs (echoes) consistent across rendering frame rates, the
 Performance figures must be tied to a tested build, device and measurement method. The earlier
 load-time, memory and mobile-FPS numbers had no supporting measurement record and are withdrawn.
 
-| Metric | Target | Recorded evidence |
-| --- | --- | --- |
-| Initial load | ≤ 10 seconds | No device/network-specific timing supplied |
-| Playable ZIP | ≤ 200 MB | Measure the final archive; no verified current size recorded here |
-| Runtime memory | Stable during extended play | No heap trace or leak investigation supplied |
-| Frame pacing | 60 FPS target | Team reports device testing; no hardware frame trace supplied |
-| Startup latency | Prompt interaction | No measured time-to-interactive supplied |
+| Metric          | Target                      | Recorded evidence                                                 |
+| --------------- | --------------------------- | ----------------------------------------------------------------- |
+| Initial load    | ≤ 10 seconds                | No device/network-specific timing supplied                        |
+| Playable ZIP    | ≤ 200 MB                    | Measure the final archive; no verified current size recorded here |
+| Runtime memory  | Stable during extended play | No heap trace or leak investigation supplied                      |
+| Frame pacing    | 60 FPS target               | Team reports device testing; no hardware frame trace supplied     |
+| Startup latency | Prompt interaction          | No measured time-to-interactive supplied                          |
 
 ### Memory Management & Garbage Collection:
+
 - **Object Pooling:** Particle effects, projectile bolts, and timeline link lines are allocated from fixed reusable object pools to eliminate runtime garbage collection stutter.
 - **Audio Context Recycling:** A single shared `AudioContext` is maintained throughout the game session, avoiding resource exhaustion on mobile browsers.
 
@@ -107,18 +112,17 @@ In compliance with **Guide §7.7 (Security Requirement)** and **Guide §7.8 (API
 
 ## 6. Browser & Device Compatibility Matrix
 
-| Environment | Evidence | Details still required |
-| --- | --- | --- |
-| Desktop Chromium | Historical automated browser checks recorded in the AI use log | Exact submission-build result and browser version |
-| Other desktop browsers / operating systems | Broad compatibility previously claimed without a detailed matrix | Named OS/browser versions and individual test results |
-| Physical Android | Owner reports completed team checks | Model, OS/browser version, build, scenarios, findings and performance measurements |
-| Physical iPhone | Owner reports completed team checks | Model, iOS/browser version, build, scenarios, findings and performance measurements |
-| Installed Android app | Historical build/signature verification recorded | Confirm whether reported device checks included the native app |
+| Environment                                | Evidence                                                         | Details still required                                                              |
+| ------------------------------------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Desktop Chromium                           | Historical automated browser checks recorded in the AI use log   | Exact submission-build result and browser version                                   |
+| Other desktop browsers / operating systems | Broad compatibility previously claimed without a detailed matrix | Named OS/browser versions and individual test results                               |
+| Physical Android                           | Owner reports completed team checks                              | Model, OS/browser version, build, scenarios, findings and performance measurements  |
+| Physical iPhone                            | Owner reports completed team checks                              | Model, iOS/browser version, build, scenarios, findings and performance measurements |
+| Installed Android app                      | Historical build/signature verification recorded                 | Confirm whether reported device checks included the native app                      |
 
 The owner's 22 October confirmation covers the three-member team's review, device/audio checks
 and playtesting, with positive tester feedback. It does not identify every tested platform.
 See [validation record](../docs/VALIDATION_RECORD.md).
-
 
 ---
 
@@ -131,7 +135,7 @@ See [validation record](../docs/VALIDATION_RECORD.md).
 
 ---
 
-**Signed by Team YOUTHs Org:**  
-- **Lead Developer & Technical Contact:** Lead Developer, YOUTHs Org  
-- **Date:** October 2026
+**Signed by Team YOUTHs Org:**
 
+- **Lead Developer & Technical Contact:** Lead Developer, YOUTHs Org
+- **Date:** October 2026

@@ -11,7 +11,7 @@
 
 ## 1. Formal Confirmation of Official Requirements
 
-In accordance with Section 10 of the *Digit7 Jam Submission Format & Technical Guide*, the development team of **PARADOX RUN** formally declares and affirms each of the following eight (8) mandatory statements:
+In accordance with Section 10 of the _Digit7 Jam Submission Format & Technical Guide_, the development team of **PARADOX RUN** formally declares and affirms each of the following eight (8) mandatory statements:
 
 1. **Newly Developed:** The submitted game, including its code architecture, level layouts, physics routines, and visual systems, was developed for the Digit7 Jam competition period (1–31 October 2026).
 2. **Not Copied:** The game is an original creation and is not copied, cloned, or plagiarized from any existing game.
@@ -19,7 +19,7 @@ In accordance with Section 10 of the *Digit7 Jam Submission Format & Technical G
 4. **Lawful Right of Use:** The team possesses the full legal right and authorization to utilize all software libraries, tools, and code comprising the submission.
 5. **No Third-Party Infringement:** The game does not infringe upon any third-party intellectual property rights, trademarks, patents, copyrights, or trade secrets.
 6. **Proof of Originality:** The team is fully prepared and able to provide verifiable proof of originality, design documentation, and commit histories upon request by the organizing committee or judges.
-7. **Complete AI Disclosure:** The team has fully disclosed all AI-assisted and AI-generated code, documentation, and tooling in the accompanying *AI Use Declaration* (§9).
+7. **Complete AI Disclosure:** The team has fully disclosed all AI-assisted and AI-generated code, documentation, and tooling in the accompanying _AI Use Declaration_ (§9).
 8. **Accurate Repository History:** The submitted private GitHub repository and its sequential commit history accurately represent the progressive work completed during the competition period.
 
 ---
@@ -29,6 +29,7 @@ In accordance with Section 10 of the *Digit7 Jam Submission Format & Technical G
 To maintain absolute integrity, honesty, and full compliance with Rule §6 (Originality) and Rule §14 (Originality Review), the team provides the following detailed disclosures:
 
 **Development Timeline:**
+
 - The prototype and planning documents were created on **16 October 2026**, during the competition development period.
 - The official competition codebase and private GitHub repository were created during October 2026.
 - All game levels, tile collision routines, WebAudio procedural instruments, player state machines, and HUD components were implemented from scratch during the active competition development window.
@@ -38,16 +39,16 @@ To maintain absolute integrity, honesty, and full compliance with Rule §6 (Orig
 
 ## 3. Prior Art Analysis & Independent Creative Expression
 
-The temporal mechanic of "recording player inputs and replaying them as a cooperative ghost" has an established history in the puzzle-platforming genre (notably games like *Chronotron* [2008] and *The Company of Myself* [2009]). Game mechanics themselves are foundational concepts, but **PARADOX RUN** is distinct and original in design, execution, mechanics, and art direction:
+The temporal mechanic of "recording player inputs and replaying them as a cooperative ghost" has an established history in the puzzle-platforming genre (notably games like _Chronotron_ [2008] and _The Company of Myself_ [2009]). Game mechanics themselves are foundational concepts, but **PARADOX RUN** is distinct and original in design, execution, mechanics, and art direction:
 
-| Comparison Dimension | Classic Genre Precedents (Chronotron, etc.) | PARADOX RUN (Digit7 Jam Entry) |
-| :--- | :--- | :--- |
-| **Genre & Pace** | Slow, untimed, cerebral puzzle-solving | **High-tempo arcade action** with tight 15–25s countdown timers, par times, and multiplier chasing |
-| **Echo Interaction** | Static switch holding and platform stacking | **Dynamic Decoy System:** Enemy turrets track the nearest physical body; past selves absorb lethal bullets to clear living paths |
-| **Mobility & Feel** | Standard 4-direction grid or stiff jumping | **Fluid arcade mobility:** Air-dash maneuvers, coyote-time jumping, variable-height leaps, and momentum slides |
-| **Visual Architecture** | Static pixel tile sheets or imported bitmaps | **100% Procedural Canvas 2D:** Real-time geometric vector rendering, chromatic temporal trails, dynamic camera zoom |
-| **Audio Design** | Pre-recorded MP3/WAV tracks and sample packs | **Live WebAudio Synthesis:** Real-time synthesized audio whose tension and tempo dynamically scale with remaining loop time |
-| **Asset Origin** | Commercial or third-party asset packs | **Zero Third-Party Media:** No imported art, no imported audio samples, no downloaded font files |
+| Comparison Dimension    | Classic Genre Precedents (Chronotron, etc.)  | PARADOX RUN (Digit7 Jam Entry)                                                                                                   |
+| :---------------------- | :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| **Genre & Pace**        | Slow, untimed, cerebral puzzle-solving       | **High-tempo arcade action** with tight 15–25s countdown timers, par times, and multiplier chasing                               |
+| **Echo Interaction**    | Static switch holding and platform stacking  | **Dynamic Decoy System:** Enemy turrets track the nearest physical body; past selves absorb lethal bullets to clear living paths |
+| **Mobility & Feel**     | Standard 4-direction grid or stiff jumping   | **Fluid arcade mobility:** Air-dash maneuvers, coyote-time jumping, variable-height leaps, and momentum slides                   |
+| **Visual Architecture** | Static pixel tile sheets or imported bitmaps | **100% Procedural Canvas 2D:** Real-time geometric vector rendering, chromatic temporal trails, dynamic camera zoom              |
+| **Audio Design**        | Pre-recorded MP3/WAV tracks and sample packs | **Live WebAudio Synthesis:** Real-time synthesized audio whose tension and tempo dynamically scale with remaining loop time      |
+| **Asset Origin**        | Commercial or third-party asset packs        | **Zero Third-Party Media:** No imported art, no imported audio samples, no downloaded font files                                 |
 
 No code, art assets, levels, dialogue, audio samples, or proprietary files were referenced, extracted, or duplicated from any other work.
 
@@ -68,8 +69,7 @@ The team acknowledges that providing false, misleading, or plagiarized informati
 
 **Signed on behalf of Team YOUTHs Org:**
 
-- **Team Representative / Lead Developer:** Lead Developer, YOUTHs Org  
-- **Technical Contact Email:** `tournament@digit7s.com` / `contact@youths.org`  
-- **Official Telegram Support Contact:** `@youths_admin`  
+- **Team Representative / Lead Developer:** Lead Developer, YOUTHs Org
+- **Technical Contact Email:** `tournament@digit7s.com` / `contact@youths.org`
+- **Official Telegram Support Contact:** `@youths_admin`
 - **Date:** October 2026
-
