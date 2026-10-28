@@ -2,7 +2,7 @@
 
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Updated:** 22 October 2026
 
 ## 1. Disclosure and review status
@@ -69,6 +69,6 @@ review; the owner's earlier confirmation does not automatically cover later chan
 > feedback. Reviewer details, device versions and individual results remain to be entered in
 > the validation record. Historical automated checks are listed separately in the AI use log.
 
-**Team representative:** Name/signature to be supplied after review of this updated declaration.
+**Team representative:** La Yaung Htut. Signature to be supplied after review of this updated declaration.
 
 **Signature date:** To be supplied.

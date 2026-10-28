@@ -3,7 +3,7 @@
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Date of Submission:** October 2026  
 **Compliance Reference:** Digit7 Jam Submission Format & Technical Guide §2, §7, §13, §15
 
@@ -135,7 +135,7 @@ See [validation record](../docs/VALIDATION_RECORD.md).
 
 ---
 
-**Signed by Team YOUTHs Org:**
+**Signed by Team Zenith:**
 
-- **Lead Developer & Technical Contact:** Lead Developer, YOUTHs Org
+- **Lead Developer & Technical Contact:** La Yaung Htut, Zenith
 - **Date:** October 2026

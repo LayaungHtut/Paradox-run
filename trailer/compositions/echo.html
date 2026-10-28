@@ -1,0 +1,42 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;color:#e8f1ff;font-family:'Inter',sans-serif;overflow:hidden}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:460px;background:linear-gradient(to top,rgba(5,8,18,.9),rgba(5,8,18,0))}
+.tag{position:absolute;left:192px;top:118px;display:flex;align-items:center;gap:18px;padding:14px 24px;border-radius:12px;background:rgba(5,8,18,.78);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.14em}
+.tag .num{color:var(--c)}
+.tag .bar{width:110px;height:4px;background:var(--c)}
+.line{position:absolute;left:192px;bottom:140px;max-width:1540px;font-weight:900;font-size:66px;line-height:1.08;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.line .w{display:inline-block;margin-right:.24em}
+.line em{font-style:normal;color:var(--c)}
+.stack{position:absolute;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;line-height:1;letter-spacing:-.01em}
+.stack .e{position:absolute;left:0;right:0;top:0}
+.stack .e1{color:var(--c);opacity:.45}
+.stack .e2{color:var(--c);opacity:.2}
+.stack .e0{position:relative}
+.stack .ch{display:inline-block}
+#root{--c:#4fd8ff}</style>
+  <div id="root" data-composition-id="echo" data-width="1920" data-height="1080" data-duration="17.5">
+    <div class="scrim"></div>
+    <div id="echo-tag" class="tag"><span class="num">02</span><span class="bar"></span><span>REWIND</span></div>
+    <div id="echo-l0" class="line"><span class="w">Press</span><span class="w"><em>R</em></span><span class="w">to</span><span class="w">rewind.</span></div>
+    <div id="echo-l1" class="line"><span class="w">Your</span><span class="w">last</span><span class="w">run</span><span class="w">becomes</span><span class="w">an</span><span class="w"><em>echo.</em></span></div>
+    <div id="echo-l2" class="line"><span class="w">Past</span><span class="w">you</span><span class="w">holds</span><span class="w">the</span><span class="w">plate…</span></div>
+    <div id="echo-l3" class="line"><span class="w">…so</span><span class="w"><em>you</em></span><span class="w">take</span><span class="w">the</span><span class="w">gate.</span></div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+tl.fromTo('#echo-tag',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.18,ease:'power4.out'},0.25);
+tl.fromTo('#echo-tag .bar',{scaleX:0,transformOrigin:'left center'},{scaleX:1,duration:.6,ease:'expo.out'},0.3);
+tl.fromTo('#echo-tag',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},17.05);
+tl.fromTo('#echo-l0 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},0.4);
+tl.fromTo('#echo-l0',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},4);
+tl.fromTo('#echo-l1 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},4.3);
+tl.fromTo('#echo-l1',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},9);
+tl.fromTo('#echo-l2 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},9.6);
+tl.fromTo('#echo-l2',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},13.2);
+tl.fromTo('#echo-l3 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},13.5);
+tl.fromTo('#echo-l3',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},16.9);
+    window.__timelines["echo"] = tl;
+  </script>
+</template>

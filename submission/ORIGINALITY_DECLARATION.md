@@ -3,7 +3,7 @@
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Date of Declaration:** October 2026  
 **Compliance Standard:** Digit7 Jam Official Participation Rules §6, §10, §13, §14 & Technical Guide §10
 
@@ -67,9 +67,9 @@ No code, art assets, levels, dialogue, audio samples, or proprietary files were 
 
 The team acknowledges that providing false, misleading, or plagiarized information constitutes grounds for immediate disqualification under Rule §13. The team stands ready to participate in technical screening, code walkthroughs, or live Q&A with the Digit7 Jam judging committee.
 
-**Signed on behalf of Team YOUTHs Org:**
+**Signed on behalf of Team Zenith:**
 
-- **Team Representative / Lead Developer:** Lead Developer, YOUTHs Org
-- **Technical Contact Email:** `tournament@digit7s.com` / `contact@youths.org`
-- **Official Telegram Support Contact:** `@youths_admin`
+- **Team Representative / Lead Developer:** La Yaung Htut, Zenith
+- **Technical Contact Email:** `layaunghtut5@gmail.com`
+- **Team Telegram Contact:** `@depressed_yoroauya_L`
 - **Date:** October 2026

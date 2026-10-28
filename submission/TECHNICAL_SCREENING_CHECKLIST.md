@@ -3,7 +3,7 @@
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Compliance Reference:** Digit7 Jam Submission Format & Technical Guide §13, §14, §15
 
 ---
@@ -43,7 +43,7 @@ Review this section immediately before clicking **Final Submit** to prevent tech
 
 - [ ] **No Broken Game Link (§14.1):** Deployed URL tested in private browsing mode (incognito) to ensure it opens without authentication.
 - [ ] **No Corrupted ZIP (§14.2):** Archive tested by downloading and extracting in a fresh clean directory.
-- [ ] **README Present (§14.3):** `README_YOUTHsOrg_ParadoxRun.md` included with all 17 required items.
+- [ ] **README Present (§14.3):** `README_Zenith_ParadoxRun.md` included with all 17 required items.
 - [ ] **Game Fully Playable (§14.4):** All 50 levels beatable; end screen reachable; controls fully responsive.
 - [ ] **Zero Crashes (§14.5):** Extended 30-minute stress tests and rapid rewind spamming execute smoothly without memory overflow.
 - [ ] **Zero Missing Deliverables (§14.6):** README, screenshots, video, credit list, originality form, and AI form all present.

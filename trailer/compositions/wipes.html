@@ -1,0 +1,50 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;color:#e8f1ff;font-family:'Inter',sans-serif;overflow:hidden}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:460px;background:linear-gradient(to top,rgba(5,8,18,.9),rgba(5,8,18,0))}
+.tag{position:absolute;left:192px;top:118px;display:flex;align-items:center;gap:18px;padding:14px 24px;border-radius:12px;background:rgba(5,8,18,.78);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.14em}
+.tag .num{color:var(--c)}
+.tag .bar{width:110px;height:4px;background:var(--c)}
+.line{position:absolute;left:192px;bottom:140px;max-width:1540px;font-weight:900;font-size:66px;line-height:1.08;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.line .w{display:inline-block;margin-right:.24em}
+.line em{font-style:normal;color:var(--c)}
+.stack{position:absolute;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;line-height:1;letter-spacing:-.01em}
+.stack .e{position:absolute;left:0;right:0;top:0}
+.stack .e1{color:var(--c);opacity:.45}
+.stack .e2{color:var(--c);opacity:.2}
+.stack .e0{position:relative}
+.stack .ch{display:inline-block}
+#root{--c:#4fd8ff}
+.wipe{position:absolute;top:-200px;left:0;width:3000px;height:1480px}
+.wipe div{position:absolute;top:0;height:100%}
+.band{left:120px;width:2760px;background:#0a1226}
+.s0{left:60px;width:44px}.s1{left:0;width:20px;opacity:.55}.s2{left:2896px;width:44px}.s3{left:2964px;width:20px;opacity:.55}</style>
+  <div id="root" data-composition-id="wipes" data-width="1920" data-height="1080" data-duration="132">
+    <div id="wipe0" class="wipe" data-layout-ignore><div class="s1" style="background:#4fd8ff"></div><div class="s0" style="background:#4fd8ff"></div><div class="band"></div><div class="s2" style="background:#4fd8ff"></div><div class="s3" style="background:#4fd8ff"></div></div>
+    <div id="wipe1" class="wipe" data-layout-ignore><div class="s1" style="background:#4fd8ff"></div><div class="s0" style="background:#4fd8ff"></div><div class="band"></div><div class="s2" style="background:#4fd8ff"></div><div class="s3" style="background:#4fd8ff"></div></div>
+    <div id="wipe2" class="wipe" data-layout-ignore><div class="s1" style="background:#ff4d6a"></div><div class="s0" style="background:#ff4d6a"></div><div class="band"></div><div class="s2" style="background:#ff4d6a"></div><div class="s3" style="background:#ff4d6a"></div></div>
+    <div id="wipe3" class="wipe" data-layout-ignore><div class="s1" style="background:#ffc94d"></div><div class="s0" style="background:#ffc94d"></div><div class="band"></div><div class="s2" style="background:#ffc94d"></div><div class="s3" style="background:#ffc94d"></div></div>
+    <div id="wipe4" class="wipe" data-layout-ignore><div class="s1" style="background:#ffc94d"></div><div class="s0" style="background:#ffc94d"></div><div class="band"></div><div class="s2" style="background:#ffc94d"></div><div class="s3" style="background:#ffc94d"></div></div>
+    <div id="wipe5" class="wipe" data-layout-ignore><div class="s1" style="background:#ffc94d"></div><div class="s0" style="background:#ffc94d"></div><div class="band"></div><div class="s2" style="background:#ffc94d"></div><div class="s3" style="background:#ffc94d"></div></div>
+    <div id="wipe6" class="wipe" data-layout-ignore><div class="s1" style="background:#a98bff"></div><div class="s0" style="background:#a98bff"></div><div class="band"></div><div class="s2" style="background:#a98bff"></div><div class="s3" style="background:#a98bff"></div></div>
+    <div id="wipe7" class="wipe" data-layout-ignore><div class="s1" style="background:#a98bff"></div><div class="s0" style="background:#a98bff"></div><div class="band"></div><div class="s2" style="background:#a98bff"></div><div class="s3" style="background:#a98bff"></div></div>
+    <div id="wipe8" class="wipe" data-layout-ignore><div class="s1" style="background:#a98bff"></div><div class="s0" style="background:#a98bff"></div><div class="band"></div><div class="s2" style="background:#a98bff"></div><div class="s3" style="background:#a98bff"></div></div>
+    <div id="wipe9" class="wipe" data-layout-ignore><div class="s1" style="background:#a98bff"></div><div class="s0" style="background:#a98bff"></div><div class="band"></div><div class="s2" style="background:#a98bff"></div><div class="s3" style="background:#a98bff"></div></div>
+    <div id="wipe10" class="wipe" data-layout-ignore><div class="s1" style="background:#ffc94d"></div><div class="s0" style="background:#ffc94d"></div><div class="band"></div><div class="s2" style="background:#ffc94d"></div><div class="s3" style="background:#ffc94d"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+tl.fromTo('#wipe0',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},9.69);
+tl.fromTo('#wipe1',{x:2220,skewX:16},{x:-3300,skewX:16,duration:.62,ease:'power3.inOut'},24.19);
+tl.fromTo('#wipe2',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},41.69);
+tl.fromTo('#wipe3',{x:2220,skewX:16},{x:-3300,skewX:16,duration:.62,ease:'power3.inOut'},53.19);
+tl.fromTo('#wipe4',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},57.19);
+tl.fromTo('#wipe5',{x:2220,skewX:16},{x:-3300,skewX:16,duration:.62,ease:'power3.inOut'},64.19);
+tl.fromTo('#wipe6',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},79.19);
+tl.fromTo('#wipe7',{x:2220,skewX:16},{x:-3300,skewX:16,duration:.62,ease:'power3.inOut'},85.19);
+tl.fromTo('#wipe8',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},93.19);
+tl.fromTo('#wipe9',{x:2220,skewX:16},{x:-3300,skewX:16,duration:.62,ease:'power3.inOut'},105.19);
+tl.fromTo('#wipe10',{x:-3300,skewX:-16},{x:2220,skewX:-16,duration:.62,ease:'power3.inOut'},118.19);
+    window.__timelines["wipes"] = tl;
+  </script>
+</template>

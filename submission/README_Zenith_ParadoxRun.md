@@ -1,7 +1,7 @@
 # README — PARADOX RUN
 
 **Submission Document for Digit7 Jam 2026**  
-**Recommended Filename:** `README_YOUTHsOrg_ParadoxRun.md`  
+**Recommended Filename:** `README_Zenith_ParadoxRun.md`  
 **Compliance Reference:** Digit7 Jam Submission Format & Technical Guide §4, §6
 
 ---
@@ -15,17 +15,16 @@ _(Subtitle: Every run you lose runs with you)_
 
 ## 2. Team Name
 
-**YOUTHs Org** (Team YOUTHs)
+**Zenith** (Team Zenith)
 
 ---
 
 ## 3. Main Contact Person
 
-- **Lead Contact:** Team Representative / Lead Developer
-- **Email:** `contact@youths.org` _(replace with registered email: e.g., you@example.com)_
+- **Lead Contact:** La Yaung Htut
+- **Email:** `layaunghtut5@gmail.com`
 - **Phone:** **TODO: team lead's real phone number**
-- **Telegram Username:** `@youths_admin` _(replace with registered Telegram handle)_
-- **Registration ID:** `D7J-2026-REG-XXXX` _(replace with official Digit7 Jam registration ID)_
+- **Telegram Username:** `@depressed_yoroauya_L`
 
 ---
 
@@ -42,19 +41,19 @@ In each tight 15–25 second loop, the player navigates precision obstacles (spi
 ### A. Playing Online (Digit7s Hosting)
 
 1. Open the official tournament link provided in the submission portal:  
-   `https://gamejam.digit7s.com/teams/youths-org/` _(or deployed hosting URL)_
+   `https://gamejam.digit7s.com/teams/zenith/` _(or deployed hosting URL)_
 2. The game loads directly in the browser via HTTPS with no account creation, login, app download, or browser extension required.
 
 ### B. Playing Locally from the Playable Build ZIP
 
-1. Extract `Digit7Jam_YOUTHsOrg_ParadoxRun.zip` to a local folder.
+1. Extract `Digit7Jam_Zenith_ParadoxRun.zip` to a local folder.
 2. Because modern web browsers restrict certain ES module and WebAudio features when opening files directly via the `file://` protocol, serve the unzipped folder using any standard local static web server:
    ```bash
    # Option 1: Using Node.js (npx serve)
-   npx serve Digit7Jam_YOUTHsOrg_ParadoxRun_Build
+   npx serve Digit7Jam_Zenith_ParadoxRun_Build
 
    # Option 2: Using Python 3
-   cd Digit7Jam_YOUTHsOrg_ParadoxRun_Build
+   cd Digit7Jam_Zenith_ParadoxRun_Build
    python -m http.server 8080
    ```
 3. Open `http://localhost:8080` in Google Chrome, Microsoft Edge, Mozilla Firefox, or Apple Safari.
@@ -216,4 +215,4 @@ All production runtime code is bundled cleanly with no heavy runtime dependencie
 - **Release Identifier:** `v1.0.0-digit7jam`
 - **Build Timestamp:** October 2026
 - **Package Manifest Version:** `1.0.0` (defined in `package.json`)
-- **Distribution Package:** `Digit7Jam_YOUTHsOrg_ParadoxRun.zip`
+- **Distribution Package:** `Digit7Jam_Zenith_ParadoxRun.zip`

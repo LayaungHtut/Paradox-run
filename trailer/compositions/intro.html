@@ -1,0 +1,56 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;color:#e8f1ff;font-family:'Inter',sans-serif;overflow:hidden}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:460px;background:linear-gradient(to top,rgba(5,8,18,.9),rgba(5,8,18,0))}
+.tag{position:absolute;left:192px;top:118px;display:flex;align-items:center;gap:18px;padding:14px 24px;border-radius:12px;background:rgba(5,8,18,.78);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.14em}
+.tag .num{color:var(--c)}
+.tag .bar{width:110px;height:4px;background:var(--c)}
+.line{position:absolute;left:192px;bottom:140px;max-width:1540px;font-weight:900;font-size:66px;line-height:1.08;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.line .w{display:inline-block;margin-right:.24em}
+.line em{font-style:normal;color:var(--c)}
+.stack{position:absolute;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;line-height:1;letter-spacing:-.01em}
+.stack .e{position:absolute;left:0;right:0;top:0}
+.stack .e1{color:var(--c);opacity:.45}
+.stack .e2{color:var(--c);opacity:.2}
+.stack .e0{position:relative}
+.stack .ch{display:inline-block}
+#root{--c:#4fd8ff}
+#intro-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,#10203c 0%,#070b16 65%)}
+.grid{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(79,216,255,.28),transparent)}
+#intro-pre{position:absolute;top:330px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.42em;color:rgba(232,241,255,.75)}
+#intro-title .p{color:#6fc8ff}
+#intro-tagline{position:absolute;top:640px;left:0;right:0;text-align:center;font-weight:700;font-size:42px}
+#intro-tagline .w{display:inline-block;margin-right:.24em}
+#intro-group{position:absolute;inset:0}</style>
+  <div id="root" data-composition-id="intro" data-width="1920" data-height="1080" data-duration="5.6">
+
+    <div id="intro-bg"></div>
+    <div id="intro-g0" class="grid" style="top:180px"></div>
+    <div id="intro-g1" class="grid" style="top:300px"></div>
+    <div id="intro-g2" class="grid" style="top:420px"></div>
+    <div id="intro-g3" class="grid" style="top:660px"></div>
+    <div id="intro-g4" class="grid" style="top:780px"></div>
+    <div id="intro-g5" class="grid" style="top:900px"></div>
+    <div id="intro-group">
+      <div id="intro-pre">TEAM ZENITH PRESENTS</div>
+      <div id="intro-title" class="stack" data-layout-allow-overlap style="top:400px;font-size:190px;"><div class="e e2" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div><div class="e e1" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div><div class="e e0" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div></div>
+      <div id="intro-tagline"><span class="w">Every</span><span class="w">run</span><span class="w">you</span><span class="w">lose</span><span class="w">runs</span><span class="w">with</span><span class="w">you.</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+tl.fromTo('.grid',{scaleX:0},{scaleX:1,duration:.9,stagger:.07,ease:'expo.out'},0);
+tl.fromTo('#intro-pre',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.2,ease:'power4.out'},0.25);
+
+tl.fromTo('#intro-title .e2',{x:-260,opacity:0},{x:-14,opacity:.2,duration:1.1,ease:'expo.out'},0.7);
+tl.fromTo('#intro-title .e1',{x:-140,opacity:0},{x:-7,opacity:.45,duration:1.0,ease:'expo.out'},0.7799999999999999);
+tl.fromTo('#intro-title .e0 .ch',{opacity:.3,filter:'blur(10px)'},{opacity:1,filter:'blur(0px)',duration:.2,stagger:.06,ease:'power4.out'},0.7999999999999999);
+tl.fromTo('#intro-title .e0',{opacity:0},{opacity:1,duration:.01},0.7999999999999999);
+tl.fromTo('#intro-tagline .w',{color:'#3a4660'},{color:'#e8f1ff',duration:.12,stagger:.09,ease:'none'},2.0);
+tl.fromTo('#intro-tagline .w',{opacity:0},{opacity:1,duration:.01,stagger:.09},2.0);
+tl.fromTo('#intro-group',{scale:1,opacity:1,filter:'blur(0px)'},{scale:3.4,opacity:0,filter:'blur(18px)',duration:.6,ease:'power3.in'},4.65);
+tl.fromTo('.grid',{opacity:1},{opacity:0,duration:.3,ease:'power2.in'},4.65);
+tl.fromTo('#intro-bg',{opacity:1},{opacity:0,duration:.5,ease:'power2.inOut'},4.95);
+    window.__timelines["intro"] = tl;
+  </script>
+</template>

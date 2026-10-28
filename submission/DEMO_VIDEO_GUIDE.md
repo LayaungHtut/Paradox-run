@@ -3,8 +3,8 @@
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
-**Recommended Filename:** `Digit7Jam_YOUTHsOrg_ParadoxRun_Demo.mp4`  
+**Team Name:** Zenith  
+**Recommended Filename:** `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`  
 **Compliance Reference:** Digit7 Jam Submission Format & Technical Guide §11
 
 ---
@@ -46,7 +46,7 @@ The guide explicitly mandates that the demo video must feature seven (7) specifi
 ### Scene 1: Title Screen & Premise (00:00 – 00:15)
 
 - **Visual:** Clean opening on the start screen. Animated geometric title text: **PARADOX RUN**. Subtitle: _"Every run you lose runs with you."_
-- **Captions:** _"PARADOX RUN — HTML5 Arcade Time-Loop Tournament Entry by Team YOUTHs Org"_
+- **Captions:** _"PARADOX RUN — HTML5 Arcade Time-Loop Tournament Entry by Team Zenith"_
 - **Narration (Optional):** _"Welcome to PARADOX RUN, a fast-paced HTML5 arcade platformer where your past failures become your future teammates."_
 
 ---
@@ -101,7 +101,7 @@ The guide explicitly mandates that the demo video must feature seven (7) specifi
 
 - **Visual:** Level 9 Finale clear screen with celebratory procedural fireworks. Cut to the final credits card displaying:
   - Game Title: PARADOX RUN
-  - Team: YOUTHs Org
+  - Team: Zenith
   - Built with: HTML5 Canvas 2D, WebAudio & Svelte 5
   - Digit7 Jam 2026
 - **Captions:** _"Playable in browser with zero install. Made for Digit7 Jam 2026."_
@@ -113,5 +113,5 @@ The guide explicitly mandates that the demo video must feature seven (7) specifi
 - [ ] Captured at 1920×1080 resolution at 60 FPS.
 - [ ] Master audio balanced (SFX audible, dynamic WebAudio synth clean, no clipping).
 - [ ] No browser bookmarks, operating system taskbars, or private desktop windows visible in crop.
-- [ ] Rendered as MP4 format named `Digit7Jam_YOUTHsOrg_ParadoxRun_Demo.mp4`.
+- [ ] Rendered as MP4 format named `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`.
 - [ ] Uploaded as unlisted on YouTube (or Google Drive with public view link) and link added to `DEVELOPER_PORTAL_SUBMISSION.md`.

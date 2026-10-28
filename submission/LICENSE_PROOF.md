@@ -3,7 +3,7 @@
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Date of Submission:** October 2026  
 **Compliance Reference:** Digit7 Jam Official Participation Rules §9 & Technical Guide §2, §8, §12
 
@@ -11,7 +11,7 @@
 
 ## 1. Overview of Legal Status
 
-This document provides formal verification and evidence that **Team YOUTHs Org** possesses full legal authorization to use, distribute, and execute all software libraries, tools, and code comprising the submission **PARADOX RUN**.
+This document provides formal verification and evidence that **Team Zenith** possesses full legal authorization to use, distribute, and execute all software libraries, tools, and code comprising the submission **PARADOX RUN**.
 
 ### Key Legal Verification Highlights:
 
@@ -152,7 +152,7 @@ The output confirms 100% compliance under MIT and Apache-2.0 licenses.
 
 ---
 
-**Signed by Team YOUTHs Org:**
+**Signed by Team Zenith:**
 
-- **Lead Developer & Representative:** Lead Developer, YOUTHs Org
+- **Lead Developer & Representative:** La Yaung Htut, Zenith
 - **Date:** October 2026

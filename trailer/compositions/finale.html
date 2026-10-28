@@ -1,0 +1,52 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;color:#e8f1ff;font-family:'Inter',sans-serif;overflow:hidden}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:460px;background:linear-gradient(to top,rgba(5,8,18,.9),rgba(5,8,18,0))}
+.tag{position:absolute;left:192px;top:118px;display:flex;align-items:center;gap:18px;padding:14px 24px;border-radius:12px;background:rgba(5,8,18,.78);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.14em}
+.tag .num{color:var(--c)}
+.tag .bar{width:110px;height:4px;background:var(--c)}
+.line{position:absolute;left:192px;bottom:140px;max-width:1540px;font-weight:900;font-size:66px;line-height:1.08;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.line .w{display:inline-block;margin-right:.24em}
+.line em{font-style:normal;color:var(--c)}
+.stack{position:absolute;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;line-height:1;letter-spacing:-.01em}
+.stack .e{position:absolute;left:0;right:0;top:0}
+.stack .e1{color:var(--c);opacity:.45}
+.stack .e2{color:var(--c);opacity:.2}
+.stack .e0{position:relative}
+.stack .ch{display:inline-block}
+#root{--c:#a98bff}
+#finale-dim{position:absolute;inset:0;background:rgba(5,8,18,.88)}
+#finale-lv{position:absolute;top:370px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:34px;letter-spacing:.5em;color:#a98bff}</style>
+  <div id="root" data-composition-id="finale" data-width="1920" data-height="1080" data-duration="38.5">
+    <div class="scrim"></div>
+    <div id="finale-tag" class="tag"><span class="num">07</span><span class="bar"></span><span>FINALE</span></div>
+    <div id="finale-l0" class="line"><span class="w">Every</span><span class="w">mechanic.</span><span class="w"><em>One</em></span><span class="w">timeline.</span></div>
+    <div id="finale-l1" class="line"><span class="w">Plates.</span><span class="w">Lifts.</span><span class="w">Ferries.</span><span class="w"><em>Beams.</em></span></div>
+    <div id="finale-l2" class="line"><span class="w">Every</span><span class="w">echo</span><span class="w">in</span><span class="w">perfect</span><span class="w"><em>sync.</em></span></div>
+    <div id="finale-dim"></div>
+    <div id="finale-lv">LEVEL 50</div>
+    <div id="finale-title" class="stack" data-layout-allow-overlap style="top:440px;font-size:160px;"><div class="e e2" data-layout-allow-overlap><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span><span class="ch">&nbsp;</span><span class="ch">P</span><span class="ch">R</span><span class="ch">I</span><span class="ch">M</span><span class="ch">E</span></div><div class="e e1" data-layout-allow-overlap><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span><span class="ch">&nbsp;</span><span class="ch">P</span><span class="ch">R</span><span class="ch">I</span><span class="ch">M</span><span class="ch">E</span></div><div class="e e0" data-layout-allow-overlap><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span><span class="ch">&nbsp;</span><span class="ch">P</span><span class="ch">R</span><span class="ch">I</span><span class="ch">M</span><span class="ch">E</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+tl.fromTo('#finale-tag',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.18,ease:'power4.out'},3.4);
+tl.fromTo('#finale-tag .bar',{scaleX:0,transformOrigin:'left center'},{scaleX:1,duration:.6,ease:'expo.out'},3.45);
+tl.fromTo('#finale-tag',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},32.6);
+tl.fromTo('#finale-l0 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},3.6);
+tl.fromTo('#finale-l0',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},7.9);
+tl.fromTo('#finale-l1 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},8.6);
+tl.fromTo('#finale-l1',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},14.5);
+tl.fromTo('#finale-l2 .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.16,stagger:.07,ease:'power4.out'},20.5);
+tl.fromTo('#finale-l2',{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(8px)',duration:.2,ease:'power2.in',immediateRender:false},26.5);
+tl.fromTo('#finale-dim',{opacity:0},{opacity:1,duration:.25,ease:'power2.out'},0);
+tl.fromTo('#finale-lv',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.18,ease:'power4.out'},0.25);
+
+tl.fromTo('#finale-title .e2',{x:-260,opacity:0},{x:-14,opacity:.2,duration:1.1,ease:'expo.out'},0.45);
+tl.fromTo('#finale-title .e1',{x:-140,opacity:0},{x:-7,opacity:.45,duration:1.0,ease:'expo.out'},0.53);
+tl.fromTo('#finale-title .e0 .ch',{opacity:.3,filter:'blur(10px)'},{opacity:1,filter:'blur(0px)',duration:.2,stagger:.06,ease:'power4.out'},0.55);
+tl.fromTo('#finale-title .e0',{opacity:0},{opacity:1,duration:.01},0.55);
+tl.fromTo(['#finale-title','#finale-lv'],{scale:1,opacity:1,filter:'blur(0px)'},{scale:2.6,opacity:0,filter:'blur(16px)',duration:.5,ease:'power3.in',immediateRender:false},3.0);
+tl.fromTo('#finale-dim',{opacity:1},{opacity:0,duration:.45,ease:'power2.inOut',immediateRender:false},3.15);
+    window.__timelines["finale"] = tl;
+  </script>
+</template>

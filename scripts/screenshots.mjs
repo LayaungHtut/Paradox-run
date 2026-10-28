@@ -3,13 +3,13 @@
  * console error or CSP violation, so it doubles as a smoke test:
  *
  *   npm run build && node build          (or npm run preview)
- *   npm run screenshots -- http://127.0.0.1:3000
+ *   npm run screenshots -- http://127.0.0.1:3000 [out-dir]
  */
 import { mkdirSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const base = (process.argv[2] ?? 'http://127.0.0.1:3000').replace(/\/$/, '');
-const out = 'store/screenshots';
+const out = process.argv[3] ?? 'store/screenshots';
 mkdirSync(out, { recursive: true });
 
 const browser = await chromium.launch();

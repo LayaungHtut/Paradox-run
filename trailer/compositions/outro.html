@@ -1,0 +1,49 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;color:#e8f1ff;font-family:'Inter',sans-serif;overflow:hidden}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:460px;background:linear-gradient(to top,rgba(5,8,18,.9),rgba(5,8,18,0))}
+.tag{position:absolute;left:192px;top:118px;display:flex;align-items:center;gap:18px;padding:14px 24px;border-radius:12px;background:rgba(5,8,18,.78);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.14em}
+.tag .num{color:var(--c)}
+.tag .bar{width:110px;height:4px;background:var(--c)}
+.line{position:absolute;left:192px;bottom:140px;max-width:1540px;font-weight:900;font-size:66px;line-height:1.08;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.line .w{display:inline-block;margin-right:.24em}
+.line em{font-style:normal;color:var(--c)}
+.stack{position:absolute;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;line-height:1;letter-spacing:-.01em}
+.stack .e{position:absolute;left:0;right:0;top:0}
+.stack .e1{color:var(--c);opacity:.45}
+.stack .e2{color:var(--c);opacity:.2}
+.stack .e0{position:relative}
+.stack .ch{display:inline-block}
+#root{--c:#4fd8ff}
+#outro-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#10203c 0%,#070b16 70%)}
+#outro-title .p{color:#6fc8ff}
+#outro-by{position:absolute;top:530px;left:0;right:0;text-align:center;font-weight:700;font-size:34px;color:rgba(232,241,255,.7)}
+#outro-team{position:absolute;top:580px;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;font-size:84px;letter-spacing:.12em;color:#4fd8ff}
+#outro-team .ch{display:inline-block}
+#outro-jam{position:absolute;top:720px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;letter-spacing:.3em}
+#outro-cta{position:absolute;top:800px;left:50%;transform:translateX(-50%);padding:20px 40px;border-radius:999px;background:#4fd8ff;color:#070b16;font-weight:900;font-size:34px;white-space:nowrap}
+#outro-ctaw{position:absolute;inset:0}</style>
+  <div id="root" data-composition-id="outro" data-width="1920" data-height="1080" data-duration="8">
+
+    <div id="outro-bg"></div>
+    <div id="outro-title" class="stack" data-layout-allow-overlap style="top:330px;font-size:150px;"><div class="e e2" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div><div class="e e1" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div><div class="e e0" data-layout-allow-overlap><span class="p"><span class="ch">P</span><span class="ch">A</span><span class="ch">R</span><span class="ch">A</span><span class="ch">D</span><span class="ch">O</span><span class="ch">X</span></span><span class="ch">&nbsp;</span><span class="ch">R</span><span class="ch">U</span><span class="ch">N</span></div></div>
+    <div id="outro-by">a game by</div>
+    <div id="outro-team"><span class="ch">Z</span><span class="ch">E</span><span class="ch">N</span><span class="ch">I</span><span class="ch">T</span><span class="ch">H</span></div>
+    <div id="outro-jam">DIGIT7 JAM 2026</div>
+    <div id="outro-ctaw"><div id="outro-cta">Play free in your browser · zero install</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+tl.fromTo('#outro-bg',{clipPath:'circle(0% at 50% 50%)'},{clipPath:'circle(80% at 50% 50%)',duration:.55,ease:'power3.inOut'},0);
+
+tl.fromTo('#outro-title .e2',{x:-260,opacity:0},{x:-14,opacity:.2,duration:1.1,ease:'expo.out'},0.45);
+tl.fromTo('#outro-title .e1',{x:-140,opacity:0},{x:-7,opacity:.45,duration:1.0,ease:'expo.out'},0.53);
+tl.fromTo('#outro-title .e0 .ch',{opacity:.3,filter:'blur(10px)'},{opacity:1,filter:'blur(0px)',duration:.2,stagger:.06,ease:'power4.out'},0.55);
+tl.fromTo('#outro-title .e0',{opacity:0},{opacity:1,duration:.01},0.55);
+tl.fromTo('#outro-by',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.18,ease:'power4.out'},1.5);
+tl.fromTo('#outro-team .ch',{opacity:.0,filter:'blur(10px)'},{opacity:1,filter:'blur(0px)',duration:.2,stagger:.1,ease:'power4.out'},1.7);
+tl.fromTo('#outro-jam',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:.18,ease:'power4.out'},2.6);
+tl.fromTo('#outro-ctaw',{opacity:0,scale:.9},{opacity:1,scale:1,duration:.5,ease:'expo.out'},3.1);
+    window.__timelines["outro"] = tl;
+  </script>
+</template>

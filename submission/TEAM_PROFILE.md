@@ -1,4 +1,4 @@
-# TEAM PROFILE — YOUTHs ORG
+# TEAM PROFILE — ZENITH
 
 **Competition:** Digit7 Jam 2026 (HTML Arcade Game Tournament)  
 **Organized by:** Digit7s Myanmar  
@@ -10,7 +10,7 @@
 
 ## 1. Team Overview
 
-**Team Name:** YOUTHs Org  
+**Team Name:** Zenith  
 **Organization Type:** Independent Developer Team / Tech Enthusiasts  
 **Country of Citizenship:** Myanmar (Compliant with Eligibility Rule §2.1)  
 **Primary Focus:** Web technologies, interactive game development, and algorithmic audio-visual systems.  
@@ -22,11 +22,10 @@
 
 In accordance with Participation Rule §3, one primary contact person has been appointed to handle all official communications, technical updates, verification requests, and prize coordination with Digit7s Myanmar:
 
-- **Main Contact Person / Leader:** [Team Lead Name / Lead Representative]
-- **Email Address:** `contact@youths.org` _(or registered submission email)_
+- **Main Contact Person / Leader:** La Yaung Htut
+- **Email Address:** `layaunghtut5@gmail.com`
 - **Phone Number:** **TODO: team lead's real phone number** _(the number previously here belonged to Digit7s, not the team)_
-- **Telegram Username:** `@youths_admin` _(registered Telegram handle for tournament support)_
-- **Registration ID:** `D7J-2026-REG-XXXX` _(issued upon official portal registration)_
+- **Telegram Username:** `@depressed_yoroauya_L`
 
 ---
 
@@ -34,7 +33,7 @@ In accordance with Participation Rule §3, one primary contact person has been a
 
 The owner reports a three-member team. Fill in member names and confirm the draft role allocation below before submission:
 
-### Member 1: Team Lead & Systems Architect
+### Member 1: La Yaung Htut — Team Lead & Systems Architect
 
 - **Role:** Lead Gameplay Engineer & Systems Architect
 - **Responsibilities:**
@@ -70,7 +69,7 @@ allocation and need confirmation against each member's actual work.
 
 ## 4. Technical Background & Competition Vision
 
-Team YOUTHs Org entered Digit7 Jam 2026 with a bold ambition: **to build a pure, uncompromising arcade experience natively designed for the open web.**
+Team Zenith entered Digit7 Jam 2026 with a bold ambition: **to build a pure, uncompromising arcade experience natively designed for the open web.**
 
 The team aims to deliver responsive controls, smooth animation and engaging cooperative gameplay using Canvas 2D, WebAudio and Svelte 5. Load time, frame pacing and final package size should be reported from measurements of the submitted build.
 
@@ -78,7 +77,7 @@ The team aims to deliver responsive controls, smooth animation and engaging coop
 
 ---
 
-**Certified by Team YOUTHs Org:**
+**Certified by Team Zenith:**
 
-- **Lead Developer & Representative:** Lead Developer, YOUTHs Org
+- **Lead Developer & Representative:** La Yaung Htut, Zenith
 - **Date:** October 2026
