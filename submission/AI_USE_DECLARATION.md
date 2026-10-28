@@ -35,6 +35,7 @@ verified by this documentation update.
 | Code and documentation   | AI-assisted. Scope includes rendering and audio-synthesis code as well as gameplay, tests and documentation.                                                |
 | Images and visual assets | No image-generation-model output is recorded. Visuals are drawn procedurally by Canvas/SVG code; that code is within the disclosed AI-assisted scope.       |
 | Music and sound effects  | No music-, voice- or audio-generation-model output is recorded. Audio is synthesized by WebAudio code; that code is within the disclosed AI-assisted scope. |
+| Demo video               | AI-assisted editing (28 October 2026). Claude Code cut the team's own gameplay screen recordings and built the titles, captions and transitions as HyperFrames (HTML/GSAP) code. No AI-generated footage, voice or music; the audio is the game's own. |
 | Other generated media    | No pre-rendered AI textures, fonts, 3D models or voice recordings are recorded.                                                                             |
 
 ## 4. Verification and its limits
@@ -64,7 +65,8 @@ review; the owner's earlier confirmation does not automatically cover later chan
 > tests, planning and documentation from 16 October 2026. Codex (OpenAI) assisted with project
 > review, date corrections and validation documentation on 22 October 2026. AI assistance
 > includes procedural rendering and audio code; no image-, music- or voice-generation-model
-> output is recorded. The owner reports completed human code review, Android/iPhone checks,
+> output is recorded. Claude Code also edited the demo video from the team's own gameplay
+> recordings (titles, captions, transitions); no AI-generated footage, voice or music. The owner reports completed human code review, Android/iPhone checks,
 > audio listening checks and playtesting by the three-member team, with positive tester
 > feedback. Reviewer details, device versions and individual results remain to be entered in
 > the validation record. Historical automated checks are listed separately in the AI use log.

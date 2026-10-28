@@ -17,7 +17,7 @@
 - **Rendering Pipeline:** Hardware-accelerated HTML5 Canvas 2D with procedural vector generation.
 - **Audio Synthesizer:** Native WebAudio API oscillator graphs generating dynamic SFX and music.
 - **UI Shell & Menus:** Svelte 5 with fine-grained reactivity (runes) compiled to minimal JavaScript.
-- **Application Bundle:** Pre-rendered static distribution generated via `@sveltejs/adapter-static` and Vite 5.
+- **Application Bundle:** Pre-rendered static distribution generated via `@sveltejs/adapter-static` and Vite 8.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

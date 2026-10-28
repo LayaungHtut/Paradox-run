@@ -4,114 +4,41 @@
 **Organized by:** Digit7s Myanmar  
 **Game Title:** PARADOX RUN  
 **Team Name:** Zenith  
-**Recommended Filename:** `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`  
+**Filename:** `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`  
 **Compliance Reference:** Digit7 Jam Submission Format & Technical Guide §11
 
 ---
 
-## 1. Technical Video Specifications
+## 1. Technical Video Specifications (as produced)
 
-- **Target Duration:** Exactly 2 minutes (Complies with the 1 to 3 minute tournament limit).
-- **Video Format:** MP4 (H.264 / AAC, 1080p, 60 FPS, 16:9 Landscape).
-- **Audio:** Original synthesized game audio + WebAudio soundtrack (crisp game SFX, no copyrighted background tracks).
-- **Language / Captions:** English on-screen caption overlays (and optional Myanmar subtitles) per Guide §11.
-- **Voiceover:** Optional (Voiceover script provided below for optional narration).
-
----
-
-## 2. Minute-by-Minute Storyboard & Content Checklist
-
-The guide explicitly mandates that the demo video must feature seven (7) specific segments:
-
-```
-[00:00 - 00:15] 1. Title Screen & Premise
-       │
-[00:15 - 00:35] 2. Controls & Core Movement
-       │
-[00:35 - 00:55] 3. Main Objective & Puzzle Mechanics
-       │
-[00:55 - 01:20] 4. Special Features: Echoes as Decoys & Personal Best Ghost
-       │
-[01:20 - 01:40] 5. Scoring Breakdown & Star Progression
-       │
-[01:40 - 01:50] 6. Daily Paradox & Replayability
-       │
-[01:50 - 02:00] 7. Campaign Completion & Victory Screen
-```
+- **Duration:** 2 minutes 12 seconds (within the 1 to 3 minute tournament limit).
+- **Video Format:** MP4 (H.264 / AAC, 1920×1080, 30 FPS, 16:9 landscape).
+- **Audio:** The game's own synthesized WebAudio music and sound effects, recorded during play. No third-party or copyrighted music.
+- **Captions:** English captions animated into the picture. No separate subtitle file is needed. Myanmar subtitles are optional and can be added on YouTube.
+- **Voiceover:** None.
+- **Source:** Team Zenith's own gameplay screen recordings. Titles, captions, zooms and transitions are motion graphics built with HyperFrames (HTML/GSAP). The editable project is in `trailer/`.
 
 ---
 
-## 3. Shot-by-Shot Production Script
+## 2. Timeline
 
-### Scene 1: Title Screen & Premise (00:00 – 00:15)
-
-- **Visual:** Clean opening on the start screen. Animated geometric title text: **PARADOX RUN**. Subtitle: _"Every run you lose runs with you."_
-- **Captions:** _"PARADOX RUN — HTML5 Arcade Time-Loop Tournament Entry by Team Zenith"_
-- **Narration (Optional):** _"Welcome to PARADOX RUN, a fast-paced HTML5 arcade platformer where your past failures become your future teammates."_
-
----
-
-### Scene 2: Basic Controls & Movement (00:15 – 00:35)
-
-- **Visual:** Level 1 start. Demonstrate fluid runner physics: left/right acceleration, variable jump height (short tap vs. long hold), and the air-dash mechanic.
-- **Captions:** _"Controls: Responsive touch steering on mobile, WASD / Space / Shift on desktop."_
-- **Narration (Optional):** _"Controls are simple and responsive: run, jump with variable height, and execute horizontal air-dashes to clear hazards."_
+| Time        | Segment                            | What is shown                                                                                                              |
+| :---------- | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| 0:00 – 0:10 | 1. Title & premise                 | Animated "PARADOX RUN" title ("Team Zenith presents", "Every run you lose runs with you."), zooming into the title screen. |
+| 0:10 – 0:24 | 2. Controls & movement             | Level 3 "Overdrive": on-screen A / D / SPACE / SHIFT / R keys light up as they are pressed. Run, jump, air-dash, rewind.   |
+| 0:24 – 0:42 | 3. Echo mechanic                   | Level 1 "First Echo": rewind banks the run as an echo, which holds the plate so the player passes the gate.               |
+| 0:42 – 0:53 | 4. Special feature: echo decoys    | Level 5 "Decoy": the Warden turret locks onto the nearest body, so the echo draws fire while the player walks past.       |
+| 0:53 – 1:04 | 5. Scoring & star progression      | Zoom on a results card (par time, shards, echo assists, 3 stars), then level select with a "50 LEVELS" counter.           |
+| 1:04 – 1:25 | 6. Personal best ghost & daily     | The gold personal-best ghost racing the player, then the Daily Paradox screen.                                             |
+| 1:25 – 2:04 | 7. Finale & campaign completion    | "LEVEL 50 / PARADOX PRIME" title, highlights of the final level, and a zoom on its 3-star "Timeline closed" results card. |
+| 2:04 – 2:12 | End card                           | "PARADOX RUN, a game by Zenith, Digit7 Jam 2026, Play free in your browser · zero install".                                |
 
 ---
 
-### Scene 3: The Time-Loop & Cooperative Echoes (00:35 – 00:55)
+## 3. Upload Checklist
 
-- **Visual:** Player approaches an impassable energy gate. The player steps onto a pressure plate on a lower ledge, stands firm, and hits the **Rewind** (`R`) button.  
-  Camera streaks back in cyan rewind trail. Next loop begins. The player rushes toward the gate; the past **echo** runs to the pressure plate, stands on it, and the gate opens, allowing the player to pass!
-- **Captions:** _"The Echo Mechanic: Press Rewind or perish to bank your past run as an echo. Your past self holds the switch for you."_
-- **Narration (Optional):** _"Can't reach the exit alone? Step on the plate, press Rewind, and your past echo will retrace your exact inputs to hold the gate open."_
-
----
-
-### Scene 4: Special Features — Turret Decoys & Timed Relays (00:55 – 01:20)
-
-- **Visual:** Level 4 (The Warden). A lethal turret locks onto targets. Player sends an echo sprinting forward. The turret tracks and fires its laser at the past echo. While the turret cools down, the living player dashes underneath to safety.
-- **Captions:** _"Special Feature: Echoes as Decoys. Lethal turrets target the nearest body, letting your past self take the hits."_
-- **Narration (Optional):** _"Echoes aren't just switch holders—they are physical decoys. Enemy turrets lock onto the nearest body, letting your past self take the fire while you sprint to safety."_
-
----
-
-### Scene 5: Scoring Breakdown & Stars (01:20 – 01:40)
-
-- **Visual:** Player enters the exit portal. Level Results Screen pops up:
-  - Loop Clear Bonus: +1,000 pts
-  - Under Par Time: +250 pts
-  - Shards Collected: +500 pts
-  - Echo Assists: +400 pts
-  - Flawless Timeline: +300 pts
-  - Final 3-Star Rating awarded.
-- **Captions:** _"Arcade Scoring: Beat par times, collect data shards, and chain echo assists to earn 3-star ratings."_
-- **Narration (Optional):** _"Every second under par and every data shard collected boosts your score towards a maximum three-star clear."_
-
----
-
-### Scene 6: Daily Paradox & Personal Best Ghost (01:40 – 01:50)
-
-- **Visual:** Quick cut to the Daily Paradox menu showing the UTC date challenge (e.g., "Mirror World + Short Fuse"). Then cut to a quick gameplay shot showing the player's personal best ghost racing beside them in shimmering gold.
-- **Captions:** _"Daily Paradox: Date-seeded modifier challenges, local win-streaks, and racing against your own gold personal-best ghost."_
-
----
-
-### Scene 7: Victory Screen & Final Credits (01:50 – 02:00)
-
-- **Visual:** Level 9 Finale clear screen with celebratory procedural fireworks. Cut to the final credits card displaying:
-  - Game Title: PARADOX RUN
-  - Team: Zenith
-  - Built with: HTML5 Canvas 2D, WebAudio & Svelte 5
-  - Digit7 Jam 2026
-- **Captions:** _"Playable in browser with zero install. Made for Digit7 Jam 2026."_
-
----
-
-## 4. Video Recording & Export Checklist
-
-- [ ] Captured at 1920×1080 resolution at 60 FPS.
-- [ ] Master audio balanced (SFX audible, dynamic WebAudio synth clean, no clipping).
-- [ ] No browser bookmarks, operating system taskbars, or private desktop windows visible in crop.
-- [ ] Rendered as MP4 format named `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`.
-- [ ] Uploaded as unlisted on YouTube (or Google Drive with public view link) and link added to `DEVELOPER_PORTAL_SUBMISSION.md`.
+- [x] 1920×1080, 16:9, MP4 (H.264 / AAC).
+- [x] Game audio only, peaking at −1 dB (no clipping).
+- [x] No browser bars, taskbars or private windows in frame.
+- [x] Named `Digit7Jam_Zenith_ParadoxRun_Demo.mp4`.
+- [ ] Upload to YouTube as **Unlisted** (or Google Drive with public view link) and replace the placeholder link in `DEVELOPER_PORTAL_SUBMISSION.md`.

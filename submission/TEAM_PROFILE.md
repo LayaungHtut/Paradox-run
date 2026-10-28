@@ -24,46 +24,45 @@ In accordance with Participation Rule §3, one primary contact person has been a
 
 - **Main Contact Person / Leader:** La Yaung Htut
 - **Email Address:** `layaunghtut5@gmail.com`
-- **Phone Number:** **TODO: team lead's real phone number** _(the number previously here belonged to Digit7s, not the team)_
+- **Phone Number:** `+959987910350`
 - **Telegram Username:** `@depressed_yoroauya_L`
 
 ---
 
 ## 3. Team Roster & Role Distribution
 
-The owner reports a three-member team. Fill in member names and confirm the draft role allocation below before submission:
+Zenith has three members. The following roles assign responsibility for the project; they do not assert who authored earlier code or assets.
 
-### Member 1: La Yaung Htut — Team Lead & Systems Architect
+### Member 1: La Yaung Htut — Team Lead & Lead Developer
 
-- **Role:** Lead Gameplay Engineer & Systems Architect
+- **Role:** Team Lead & Lead Developer
 - **Responsibilities:**
-  - Designed the deterministic 60 Hz fixed-step physics loop and custom input bitmask replay codec.
-  - Developed sub-pixel collision routines, coyote-time mechanics, and time-loop synchronization.
-  - Oversaw technical screening readiness, automated Vitest pipelines, and static build optimizations.
+  - Coordinate gameplay development, code integration and technical decisions.
+  - Maintain the game build, deployment and release package.
+  - Handle competition communications and final submission.
 
-### Member 2: Game Designer & Level Architect
+### Member 2: Thar Lun Myint Myat Tun — Game Designer & Level Balancing Lead
 
-- **Role:** Lead Game Designer & Level Crafter
+- **Role:** Game Designer & Level Balancing Lead
 - **Responsibilities:**
-  - Authored the core gameplay progression and teaching curves across the 50 levels (15 campaign + 35 expansion).
-  - Balanced puzzle timings, pressure-plate relay windows, turret tracking arcs, and par scores.
-  - Designed the "Daily Paradox" dynamic modifier system and achievement milestones.
+  - Review level progression, puzzle clarity and the introduction of new mechanics.
+  - Tune difficulty, par times, shard placement and echo cooperation challenges.
+  - Gather playtest feedback on enjoyment, fairness and replay value.
 
-### Member 3: Frontend & Audio Systems Engineer
+### Member 3: Bhone Myat Khaing — QA & UI/UX Lead
 
-- **Role:** Procedural Audio & UI Shell Engineer
+- **Role:** QA & UI/UX Lead
 - **Responsibilities:**
-  - Engineered the procedural WebAudio oscillator synthesis engine for dynamic music and sound effects.
-  - Crafted the reactive Svelte 5 UI shell, HUD overlays, responsive orientation dialogs, and settings menus.
-  - Implemented high-contrast, reduced-flashing, and accessibility toggles.
+  - Check desktop and mobile controls, menu usability and screen readability.
+  - Coordinate browser, device and audio checks; record issues and retest fixes.
+  - Review accessibility settings, screenshots and demo presentation.
 
 ### Shared review and testing
 
 The owner reports that they and two other team members completed code review, physical
-Android/iPhone checks, audio listening and playtesting, with positive feedback. Names,
-specific responsibilities, tested devices and findings remain to be entered in the
-[validation record](../docs/VALIDATION_RECORD.md). The role descriptions above are a draft
-allocation and need confirmation against each member's actual work.
+Android/iPhone checks, audio listening and playtesting, with positive feedback. Review
+coverage, tested devices and findings remain to be entered in the
+[validation record](../docs/VALIDATION_RECORD.md).
 
 ---
 

@@ -56,7 +56,7 @@ SOFTWARE.
 
 ---
 
-### B. Vite 5 (Frontend Build Tool)
+### B. Vite 8 (Frontend Build Tool)
 
 - **Repository:** `https://github.com/vitejs/vite`
 - **Copyright:** (c) 2019–present, Yuxi (Evan) You and Vite contributors
@@ -74,7 +74,7 @@ in the Software without restriction... [Standard MIT terms apply]
 
 ---
 
-### C. TypeScript 5 (Programming Language Compiler)
+### C. TypeScript 6 (Programming Language Compiler)
 
 - **Repository:** `https://github.com/microsoft/TypeScript`
 - **Copyright:** (c) Microsoft Corporation. All rights reserved.
@@ -96,7 +96,7 @@ limitations under the License.
 
 ---
 
-### D. Tailwind CSS 3 (Styling Framework)
+### D. Tailwind CSS 4 (Styling Framework)
 
 - **Repository:** `https://github.com/tailwindlabs/tailwindcss`
 - **Copyright:** (c) Tailwind Labs, Inc.
@@ -123,6 +123,22 @@ of this software and associated documentation files (the "Software")... [Standar
 MIT License
 
 Copyright (c) 2021-present Anthony Fu and Vitest contributors
+[Standard MIT terms apply]
+```
+
+---
+
+### F. Capacitor 8 (Android App Wrapper)
+
+- **Repository:** `https://github.com/ionic-team/capacitor`
+- **Copyright:** (c) 2017–present Drifty Co. (Ionic)
+- **License:** MIT License
+- **Usage:** `@capacitor/core` and `@capacitor/app` handle the Android hardware back button; not used in the browser build.
+
+```text
+MIT License
+
+Copyright (c) 2017-present Drifty Co.
 [Standard MIT terms apply]
 ```
 

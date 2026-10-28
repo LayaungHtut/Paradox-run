@@ -23,7 +23,7 @@ _(Subtitle: Every run you lose runs with you)_
 
 - **Lead Contact:** La Yaung Htut
 - **Email:** `layaunghtut5@gmail.com`
-- **Phone:** **TODO: team lead's real phone number**
+- **Phone:** `+959987910350`
 - **Telegram Username:** `@depressed_yoroauya_L`
 
 ---
@@ -38,10 +38,10 @@ In each tight 15–25 second loop, the player navigates precision obstacles (spi
 
 ## 5. How to Open and Play the Game
 
-### A. Playing Online (Digit7s Hosting)
+### A. Playing Online
 
-1. Open the official tournament link provided in the submission portal:  
-   `https://gamejam.digit7s.com/teams/zenith/` _(or deployed hosting URL)_
+1. Open the current public deployment:  
+   `https://paradox-run.vercel.app/`
 2. The game loads directly in the browser via HTTPS with no account creation, login, app download, or browser extension required.
 
 ### B. Playing Locally from the Playable Build ZIP
@@ -130,14 +130,15 @@ All production runtime code is bundled cleanly with no heavy runtime dependencie
 
 | Tool / Library               | Version / Type              | License    | Purpose in Project                                   |
 | :--------------------------- | :-------------------------- | :--------- | :--------------------------------------------------- |
-| **Svelte 5**                 | 5.0.0-next / Framework      | MIT        | Reactive UI shell, HUD overlays, state management    |
-| **SvelteKit**                | 2.5.x / App Framework       | MIT        | Application scaffolding, route handling              |
+| **Svelte 5**                 | 5.57.x / Framework          | MIT        | Reactive UI shell, HUD overlays, state management    |
+| **SvelteKit**                | 2.70.x / App Framework      | MIT        | Application scaffolding, route handling              |
 | **@sveltejs/adapter-static** | 3.0.x / Build Adapter       | MIT        | Static HTML/JS/CSS pre-rendering for tournament host |
-| **Vite**                     | 5.x / Bundler               | MIT        | Build pipeline, module bundling, minification        |
-| **TypeScript**               | 5.x / Compiler              | Apache-2.0 | Type safety, deterministic math data models          |
-| **Tailwind CSS**             | 3.4.x / Utility CSS         | MIT        | High-performance menu and overlay styling            |
-| **Vitest**                   | 2.x / Test Suite            | MIT        | Automated test verification (sim, levels, physics)   |
-| **Playwright**               | 1.45.x / Browser Automation | Apache-2.0 | Headless Chromium browser automation                 |
+| **Vite**                     | 8.x / Bundler               | MIT        | Build pipeline, module bundling, minification        |
+| **TypeScript**               | 6.x / Compiler              | Apache-2.0 | Type safety, deterministic math data models          |
+| **Tailwind CSS**             | 4.3.x / Utility CSS         | MIT        | High-performance menu and overlay styling            |
+| **Vitest**                   | 4.x / Test Suite            | MIT        | Automated test verification (sim, levels, physics)   |
+| **Playwright**               | 1.63.x / Browser Automation | Apache-2.0 | Headless Chromium browser automation                 |
+| **Capacitor**                | 8.5.x / Android Wrapper     | MIT        | Android back-button handling (not used in browser)   |
 
 ---
 
